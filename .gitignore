@@ -1,0 +1,29 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- Datasets & experiment outputs (large, not redistributed in the repo) ---
+Data/
+logs/
+experiments/
+*.pt
+*.pth
+
+# --- Built documentation ---
+site/
+
+# --- Editor / tooling / OS ---
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
