@@ -1,0 +1,110 @@
+# =============================================================================
+#  NAEA on DBP15K — Configuration
+#  Paper: "Neighborhood-Aware Attentional Representation for Multilingual
+#          Knowledge Graph Entity Alignment" (Zhu et al., IJCAI 2019)
+#  https://www.ijcai.org/proceedings/2019/0269.pdf
+#
+#  This single file drives the whole experiment: data, model, training,
+#  logging and the artefacts that get persisted to disk. Change values here
+#  (NOT in the notebook) and re-run.
+# =============================================================================
+
+experiment:
+  name: "naea_zh_en_0_3"          # used to name the run directory under output_dir
+  seed: 2024
+  device: "cuda"                  # "cuda" or "cpu"; falls back to cpu if unavailable
+
+# ----------------------------------------------------------------------------
+#  Data
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"             # relative to project root
+  lang: "zh_en"                   # one of: zh_en | ja_en | fr_en
+  fold: "0_3"                     # 0_1 .. 0_5  (0_3 == 30% seed alignments, the paper setting)
+  use_mtranse_format: true        # use the clean JAPE/MTransE split (disjoint id spaces)
+  # The mtranse/<fold> folder provides: ent_ids_1, ent_ids_2, rel_ids_1,
+  # rel_ids_2, triples_1, triples_2, sup_pairs (train), ref_pairs (test).
+
+# ----------------------------------------------------------------------------
+#  Model  (NAEA)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 300                  # entity & relation embedding size (paper: 75-300)
+  attn_heads: 1                   # neighbourhood-aware attention heads
+  attn_dropout: 0.0
+  max_neighbors: 75               # cap / sampled neighbours per entity (memory vs. coverage)
+  init: "xavier"                  # xavier | normal
+  normalize_embeddings: true      # L2-normalise entity/relation embeddings (TransE convention)
+  neighbor_message: "trans"       # how a neighbour (e_j, r_k) contributes: "trans" => e_j - r_k
+                                  # (translation-consistent), "ent" => e_j only.
+
+# ----------------------------------------------------------------------------
+#  Training
+# ----------------------------------------------------------------------------
+train:
+  epochs: 500
+  batch_size: 4096                # triples per batch (knowledge loss)
+  align_batch_size: 1024          # seed pairs per batch (alignment loss)
+  lr: 0.001
+  optimizer: "adam"               # adam | sgd
+  weight_decay: 0.0
+  lr_schedule: "cosine"           # "cosine" (decay to ~0 over epochs) or "none"
+  margin_kge: 1.0                 # margin for the TransE triple loss (unbounded scores)
+  # ---- limit-based alignment loss (distances are in [0,2] => absolute margins) ----
+  align_pos_margin: 0.3           # γ₁ : pull aligned pairs to distance ≤ 0.3 (cos ≥ 0.955)
+  align_neg_margin: 1.0           # γ₂ : push negatives to distance ≥ 1.0  (cos ≤ 0.5)
+  align_neg_weight: 1.0           # μ  : weight of the negative term
+  neg_samples: 10                 # negatives per positive (both losses)
+  # ---- hard / nearest-neighbour negative sampling (BootEA ε-truncated) ------
+  # The biggest lever for Hit@1: align negatives are drawn from each seed
+  # entity's *nearest* cross-KG entities (the confusable ones), refreshed
+  # periodically, instead of uniformly at random.
+  hard_negatives:
+    enabled: true
+    num_candidates: 50            # C: size of the nearest-neighbour candidate pool
+    refresh_every: 5              # recompute the candidate pools every N epochs
+    start_epoch: 10               # start using hard negatives after this warm-up
+  align_loss_weight: 5.0          # lambda — alignment is the real objective, give it weight
+  grad_clip: 0.0                  # 0 disables
+  early_stop_patience: 8          # stop if avg-MRR hasn't improved for N evals (0 disables)
+  # ---- bootstrapping (BootEA-style self-training, used by NAEA) ------------
+  # IMPORTANT: pseudo-labels are RE-COMPUTED from scratch every round (never
+  # permanently accumulated), via a mutual + one-to-one (greedy MWGM) matching
+  # on CSLS-adjusted similarity. This lets the model *revise* earlier mistakes
+  # as it improves — the naive "accumulate forever" variant collapses.
+  bootstrap:
+    enabled: true
+    start_epoch: 30               # begin proposing new alignments after warm-up
+    every: 5                      # RE-LABEL the unlabelled pool every N epochs
+    threshold: 0.75               # min cosine sim to accept a (mutual, 1-to-1) pair
+    pseudo_weight: 0.4            # weight (beta) of the pseudo-label alignment loss
+    max_add: 6000                 # safety cap on accepted pairs per round
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 10                       # evaluate on the test (ref) set every N epochs
+  hits_at: [1, 5, 10]             # Hit@k values to report (+ MRR always computed)
+  metric: "csls"                  # "csls" (sharper, recommended) or "cosine"/"l2"
+  csls_k: 10                      # neighbourhood size for CSLS normalisation
+  eval_chunk: 1024                # rows per chunk when building the similarity matrix
+  direction: "both"               # "l2r", "r2l" or "both" (report both directions + avg)
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "logs"       # run dir => logs/<name>_<timestamp>/
+  log_file: "training.txt"        # full stdout of the training loop
+  config_dump: "config_used.yaml" # snapshot of the resolved config
+  save_best: true                 # keep best-MRR checkpoint
+  save_last: true                 # keep last-epoch checkpoint
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"# final entity/relation embeddings
+  metrics_csv: "metrics.csv"      # per-eval metric history
+  loss_csv: "loss.csv"            # per-epoch loss history
+  plots:                          # figures saved as PNG
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
