@@ -1,0 +1,112 @@
+# =============================================================================
+#  BootEA on DBP15K — Configuration
+#  Paper: "Bootstrapping Entity Alignment with Knowledge Graph Embedding"
+#          (Sun, Hu, Zhang, Qu — IJCAI 2018)
+#  https://www.ijcai.org/proceedings/2018/0611.pdf
+#
+#  Drives the whole experiment: data, model, training, logging, artefacts.
+#  Edit values here (NOT in the notebook) and re-run.
+# =============================================================================
+
+experiment:
+  name: "bootea_zh_en_0_3"
+  model: "bootea"                 # selects the BootEA trainer in main.py
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data  (clean JAPE/MTransE split with disjoint id spaces)
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                   # zh_en | ja_en | fr_en
+  fold: "0_3"                     # 0_3 == 30% seed alignments (paper setting)
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model  (AlignE : TransE with unit-sphere entity embeddings)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 300                  # BootEA paper uses 75; 300 gives more capacity (tunable)
+  init: "xavier"                  # xavier | normal
+  normalize_embeddings: true      # L2-normalise entity embeddings (relations free)
+
+# ----------------------------------------------------------------------------
+#  Training
+# ----------------------------------------------------------------------------
+train:
+  epochs: 500
+  batch_size: 4096                # triples per batch
+  align_batch_size: 1024          # labelled pairs per batch (alignment pull)
+  lr: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0
+  lr_schedule: "none"           # "cosine" | "none"
+  grad_clip: 0.0
+  early_stop_patience: 12         # stop if avg-MRR hasn't improved for N evals (0 disables)
+  neg_samples: 10
+  # ---- AlignE limit-based triple loss (absolute margins) -------------------
+  pos_margin_kge: 0.01            # γ₁ : pull positive triples' ||h+r-t|| below this
+  neg_margin_kge: 2.0             # γ₂ : push negative triples' ||h+r-t|| above this
+  neg_weight_kge: 0.2             # μ  : weight of the negative term
+  # ---- alignment-by-swapping (SEED pairs only, built once) -----------------
+  # Swapping is restricted to the gold seed so erroneous bootstrapped pairs can
+  # never corrupt the triple set (the cause of collapse with swap-on-pseudo).
+  swapping:
+    enabled: true
+    cap_per_role: 20              # max swapped triples per labelled entity per role
+    swap_pseudo: true             # also swap confident bootstrapped pairs (BootEA core)
+  # ---- contrastive limit-based alignment loss (the Hit@1 driver) -----------
+  align_pos_margin: 0.2           # γ₁ : pull aligned pairs to distance ≤ 0.2 (cos ≥ 0.98)
+  align_neg_margin: 1.0           # γ₂ : push negatives to distance ≥ 1.0 (cos ≤ 0.5)
+  align_neg_weight: 1.0           # μ  : weight of the negative term
+  align_loss_weight: 5.0          # λ  : alignment is the real objective, give it weight
+  # ---- hard (nearest cross-KG) negatives for the alignment loss ------------
+  hard_negatives:
+    enabled: true
+    num_candidates: 50
+    refresh_every: 5
+    start_epoch: 10
+  # ---- ε-truncated negative sampling for TRIPLES (nearest same-KG) ---------
+  eps_truncated:
+    enabled: true
+    num_candidates: 50
+    refresh_every: 5
+    start_epoch: 10
+  # ---- bootstrapping (editable, recomputed MWGM labelling) -> pseudo pairs --
+  bootstrap:
+    enabled: true
+    start_epoch: 20
+    every: 5                      # re-label the unlabelled pool every N epochs
+    threshold: 0.65               # min cosine sim to accept a (mutual, 1-to-1) pair
+    pseudo_weight: 1.0            # weight (β) of the pseudo-label alignment loss
+    max_add: 9000
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 10
+  hits_at: [1, 5, 10]
+  metric: "csls"                  # csls | cosine | l2
+  csls_k: 3                       # CSLS neighbourhood (3 = sharper => better Hit@1)
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
