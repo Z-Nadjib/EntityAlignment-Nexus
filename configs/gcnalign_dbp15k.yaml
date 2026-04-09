@@ -1,0 +1,76 @@
+# =============================================================================
+#  GCN-Align on DBP15K — Configuration
+#  Paper: "Cross-lingual Knowledge Graph Alignment via Graph Convolutional
+#          Networks" (Wang, Lv, Lan, Zhang, Li — EMNLP 2018)
+#  https://aclanthology.org/D18-1032.pdf
+#
+#  Reported (DBP15K zh_en, 30% seed, structure-only SE): Hit@1 ~0.384,
+#  Hit@10 ~0.703, Hit@50 ~0.812.
+# =============================================================================
+
+experiment:
+  name: "gcnalign_zh_en_0_3"
+  model: "gcnalign"
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                   # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model  (structure channel SE: shared 2-layer GCN)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 300                  # SE embedding dimension (paper: 200; 300 adds coverage)
+  n_layers: 2                     # GCN layers (paper: 2)
+  dropout: 0.0
+  activation: false               # linear propagation (works better than ReLU for EA)
+  normalize_embeddings: true      # L2-normalise output (raw + SGD lr20 diverges in PyTorch)
+
+# ----------------------------------------------------------------------------
+#  Training
+# ----------------------------------------------------------------------------
+train:
+  epochs: 3000
+  lr: 0.001                       # Adam (paper uses SGD lr20; adapted for PyTorch stability)
+  optimizer: "adam"               # sgd (paper) | adam | adagrad
+  weight_decay: 0.0
+  grad_clip: 0.0
+  early_stop_patience: 0          # 0 = train full (GCN-Align trains a fixed 2000 epochs)
+  margin: 3.0                     # γ — margin for the L1 alignment loss
+  k: 25                           # negatives per seed (more => less loss saturation)
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 50
+  hits_at: [1, 5, 10]
+  metric: "csls"                  # CSLS boost (paper uses plain L1 ~0.38/0.70)
+  csls_k: 3
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
