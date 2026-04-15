@@ -1,0 +1,102 @@
+# =============================================================================
+#  AliNet on DBP15K — Configuration
+#  Paper: "Knowledge Graph Alignment Network with Gated Multi-hop Neighborhood
+#          Aggregation" (Sun, Wang, Hu, Li, Zhang, Qu, Li — AAAI 2020)
+#  https://arxiv.org/pdf/1911.08936v1
+#
+#  Reported (DBP15K zh_en, 30% seed): Hit@1 0.539, Hit@10 0.826, MRR 0.628.
+# =============================================================================
+
+experiment:
+  name: "alinet_zh_en_0_3"
+  model: "alinet"                 # selects the AliNet trainer in main.py
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data  (clean JAPE/MTransE split with disjoint id spaces)
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                   # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model  (gated multi-hop GNN)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 500                  # input entity embedding size
+  layer_dims: [500, 500]          # 2 gated multi-hop layers (3+ over-smooths); rep = concat of layer outputs
+  max_two_hop: 50                 # cap on sampled 2-hop neighbours per entity
+  dropout: 0.1                    # feature + attention dropout
+  normalize_embeddings: true      # L2-normalise the JK representation
+
+# ----------------------------------------------------------------------------
+#  Training  (full-batch GNN: one forward over all entities per epoch)
+# ----------------------------------------------------------------------------
+train:
+  epochs: 3000
+  lr: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0
+  lr_schedule: "none"             # "cosine" | "none"
+  grad_clip: 0.0
+  early_stop_patience: 15         # stop if avg-MRR hasn't improved for N evals (0 disables)
+  neg_samples: 25
+  # ---- alignment loss ------------------------------------------------------
+  loss: "ranking"                   # "limit" (bounded, pairs well with hard negs) | "ranking"
+  align_margin: 1.0               # (ranking only) gold must be γ closer than each negative
+  align_pos_margin: 0.2           # (limit) pull aligned pairs to distance ≤ 0.2
+  align_neg_margin: 1.0           # (limit) push negatives to distance ≥ 1.0
+  align_neg_weight: 1.0           # (limit) weight of the negative term
+  # ---- relation-aware (TransE) loss : structural anchor for ALL entities ----
+  relation:
+    enabled: true
+    weight: 1.0                   # λ on the relation/triple loss
+    margin: 1.0                   # margin for the TransE-style triple ranking
+    batch_size: 20000             # triples sampled per epoch for the relation loss
+  # ---- ε-truncated (nearest cross-KG) negatives -----------------------------
+  hard_negatives:
+    enabled: true
+    strategy: "mixed"             # random | hard | mixed
+    hard_ratio: 0.5               # fraction of hard negatives when mixed
+    num_candidates: 50
+    refresh_every: 10
+    start_epoch: 100
+  # ---- bootstrapping (off by default = base AliNet) -------------------------
+  bootstrap:
+    enabled: false
+    start_epoch: 50
+    every: 10
+    threshold: 0.7
+    max_add: 6000
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 20
+  hits_at: [1, 5, 10]
+  metric: "csls"
+  csls_k: 3
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
