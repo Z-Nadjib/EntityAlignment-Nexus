@@ -1,0 +1,80 @@
+# =============================================================================
+#  KECG on DBP15K — Configuration
+#  Paper: "Semi-supervised Entity Alignment via Joint Knowledge Embedding Model
+#          and Cross-graph Model" (Li, Cao, Hou, Shi, Li, Chua — EMNLP 2019)
+#  https://aclanthology.org/D19-1274.pdf
+#
+#  Reported (DBP15K zh_en, 30% seed): Hit@1 0.477, Hit@10 0.835, MRR 0.598.
+# =============================================================================
+
+experiment:
+  name: "kecg_zh_en_0_3"
+  model: "kecg"                   # selects the KECG trainer in main.py
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                   # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model  (shared diagonal multi-head GAT + TransE)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 128                  # entity & relation embedding size (paper: 128)
+  n_layers: 2                     # GAT layers (paper: 2)
+  n_heads: 2                      # attention heads per layer (paper: 2)
+  attn_dropout: 0.0
+  normalize_embeddings: false     # KECG: raw GAT output ranked by L2 distance
+
+# ----------------------------------------------------------------------------
+#  Training  (alternating Cross-Graph / Knowledge-Embedding)
+# ----------------------------------------------------------------------------
+train:
+  epochs: 3000
+  lr: 0.005
+  optimizer: "adagrad"            # adagrad (paper) | adam | sgd
+  weight_decay: 0.0
+  grad_clip: 0.0
+  early_stop_patience: 12         # stop if avg-MRR hasn't improved for N evals (0 disables)
+  margin_cg: 3.0                  # cross-graph triplet margin (paper γ_CG = 3)
+  margin_ke: 3.0                  # knowledge-embedding (TransE) margin (paper γ_KE = 3)
+  k_cg: 25                        # cross-graph negatives per seed
+  k_ke: 2                         # knowledge-embedding negatives per triple
+  use_nns: true                   # KECG NNS: nearest OTHER seeds (same KG) as negatives
+  update_num: 5
+  ke_batch_size: 200000           # triples sampled per KE epoch (original paper uses all)
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 25
+  hits_at: [1, 5, 10]
+  metric: "l2"                    # KECG ranks by L2 distance (nearest neighbour)
+  csls_k: 3
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
