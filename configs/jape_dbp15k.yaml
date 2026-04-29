@@ -1,0 +1,77 @@
+# =============================================================================
+#  JAPE on DBP15K — Configuration
+#  Paper: "Cross-lingual Entity Alignment via Joint Attribute-Preserving
+#          Embedding" (Sun, Hu, Li — ISWC 2017)  https://arxiv.org/pdf/1708.05045
+#
+#  JAPE = Structure Embedding (TransE on the MERGED-seed graph) + Attribute
+#  Embedding (cross-KG attribute bag). Reported DBP15K zh_en (30% seed, SE+AE):
+#  Hit@1 ~0.41, Hit@10 ~0.74 (SE-only is markedly lower).
+# =============================================================================
+
+experiment:
+  name: "jape_zh_en_0_3"
+  model: "jape"
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data  — JAPE merged-seed format (aligned seeds share ids) => use_mtranse=false
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                   # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: false       # JAPE top-level format: seeds merged to shared ids
+
+# ----------------------------------------------------------------------------
+#  Model  (structure embedding: TransE)
+# ----------------------------------------------------------------------------
+model:
+  embed_dim: 75                   # JAPE uses d=75
+  init: "xavier"
+  normalize_embeddings: true      # L2-normalise entity embeddings (TransE convention)
+
+# ----------------------------------------------------------------------------
+#  Training
+# ----------------------------------------------------------------------------
+train:
+  epochs: 500
+  batch_size: 4096                # triples per batch
+  lr: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0
+  early_stop_patience: 15
+  margin: 1.0                     # TransE margin (γ)
+  neg_samples: 25                 # corrupted triples per positive
+  # ---- attribute channel (AE) ----------------------------------------------
+  use_attributes: true            # combine attribute-bag similarity with SE
+  beta: 0.9                       # sim = β·SE + (1-β)·AE  (SE-dominant; AE refines)
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 25
+  hits_at: [1, 5, 10]
+  metric: "cosine"                # (JAPETrainer computes SE & SE+AE internally)
+  csls_k: 5                        # CSLS neighbourhood for the fused SE+AE similarity
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
