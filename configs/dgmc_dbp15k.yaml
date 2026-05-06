@@ -1,0 +1,76 @@
+# =============================================================================
+#  DGMC on DBP15K - Configuration
+#  Paper: "Deep Graph Matching Consensus" (Fey, Lenssen, Morris, Masci, Kriege,
+#          ICLR 2020)  https://arxiv.org/abs/2001.09621
+#
+#  Two-stage neural graph matching: local feature matching (psi_1 GNN) producing
+#  a sparse top-k correspondence, then neighbourhood-consensus refinement
+#  (psi_2 GNN + MLP) over `num_steps` iterations. Node features = SUM of the
+#  GloVe-300d word embeddings of each entity's (translated) name.
+#  Reported DBP15K Hits@1: zh_en 0.801, ja_en 0.848, fr_en 0.933.
+# =============================================================================
+
+experiment:
+  name: "dgmc_zh_en"
+  model: "dgmc"
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data  - GMNN/DGMC name-feature split (separate KGs, train.ref / test.ref)
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/DBP15K_pyg/DBP15K"   # extracted DBP15K dir (sub.glove.300d + pairs)
+  pair: "zh_en"                    # zh_en | ja_en | fr_en
+  lang: "zh_en"                    # (kept for the shared CLI; unused by DGMC)
+  fold: "0_3"
+
+# ----------------------------------------------------------------------------
+#  Model
+# ----------------------------------------------------------------------------
+model:
+  dim: 256                         # psi_1 output dim
+  rnd_dim: 32                      # psi_2 in/out dim (random node colourings)
+  num_layers: 3                    # RelConv layers in each GNN
+  num_steps: 10                    # consensus refinement iterations (L)
+  k: 25                            # sparse top-k candidates per source node
+  dropout: 0.2                     # psi_1 dropout (psi_2 uses 0.0)
+  normalize: true                  # L2-normalise psi_1 embeddings (cosine matching)
+  normalize_features: true         # L2-normalise the input summed-name features
+  temperature: 20.0                # logit scale for the cosine similarity
+
+# ----------------------------------------------------------------------------
+#  Training  (two phases: feature matching, then consensus refinement)
+# ----------------------------------------------------------------------------
+train:
+  epochs: 300
+  refine_after: 100                # turn on consensus refinement
+  detach_refine: false             # keep training psi_1 during refinement (lifts recall)
+  lr: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 10
+  hits_at: [1, 10]
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
