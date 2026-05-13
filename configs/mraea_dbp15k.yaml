@@ -1,0 +1,82 @@
+# =============================================================================
+#  MRAEA on DBP15K - Configuration
+#  Paper: "MRAEA: An Efficient and Robust Entity Alignment Approach for
+#          Cross-lingual Knowledge Graph" (Mao et al., WSDM 2020)
+#          https://dl.acm.org/doi/10.1145/3336191.3371804
+#
+#  Meta-relation-aware graph attention: each entity attends over its in/out
+#  neighbours, the edge attention logit also depends on the meta-relation it
+#  carries (relation + inverse get distinct embeddings); JK-concat of `depth`
+#  steps; L1 margin loss; cosine alignment. Optional bi-directional iterative
+#  seed bootstrapping (semi-supervised) to lift Hits@1 further.
+#  Reported DBP15K Hits@1: zh_en 0.638, ja_en 0.636, fr_en 0.666
+#  (+ iterative: 0.757 / 0.758 / 0.781).
+# =============================================================================
+
+experiment:
+  name: "mraea_zh_en_0_3"
+  model: "mraea"
+  seed: 2024
+  device: "cuda"
+
+# ----------------------------------------------------------------------------
+#  Data  - mtranse / disjoint-id split (sup_pairs train, ref_pairs test)
+# ----------------------------------------------------------------------------
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                    # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model
+# ----------------------------------------------------------------------------
+model:
+  node_hidden: 100
+  rel_hidden: 100
+  depth: 2                         # graph-attention steps (JK-concatenated)
+  attn_heads: 2                    # averaged
+  dropout: 0.30
+
+# ----------------------------------------------------------------------------
+#  Training
+# ----------------------------------------------------------------------------
+train:
+  epochs: 5000
+  lr: 0.001
+  optimizer: "adam"
+  weight_decay: 0.0
+  gamma: 3.0                       # L1 margin
+  # ---- bi-directional iterative bootstrapping (semi-supervised) -------------
+  iterative: true                  # set true for the +iterative variant
+  iter_start: 1000                 # first bootstrap round (epoch)
+  iter_every: 300                  # add seeds every N epochs
+  iter_threshold: 0.0              # min cosine for a mutual NN to be accepted
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 200
+  hits_at: [1, 5, 10]
+  metric: "cosine"
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
