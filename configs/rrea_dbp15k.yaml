@@ -1,0 +1,75 @@
+# =============================================================================
+#  RREA on DBP15K - Configuration
+#  Paper: "Relational Reflection Entity Alignment" (Mao et al., CIKM 2020)
+#          https://arxiv.org/abs/2008.07962
+#
+#  Meta-relation graph attention with a RELATIONAL REFLECTION operator
+#  (Householder: reflect a neighbour across the hyperplane orthogonal to the
+#  relation vector). The shared encoder is run on an entity-based and a
+#  relation-based initial feature, concatenated; L1 margin loss; CSLS alignment.
+#  Turn-based bi-directional CSLS mutual-NN bootstrapping (semi-supervised).
+#  Reported DBP15K Hits@1: basic zh 0.715 / ja 0.713 / fr 0.739;
+#  semi  zh 0.801 / ja 0.802 / fr 0.827.
+# =============================================================================
+
+experiment:
+  name: "rrea_zh_en_0_3"
+  model: "rrea"
+  seed: 2024
+  device: "cuda"
+
+data:
+  root: "Data/dbp15k"
+  lang: "zh_en"                    # zh_en | ja_en | fr_en
+  fold: "0_3"
+  use_mtranse_format: true
+
+# ----------------------------------------------------------------------------
+#  Model
+# ----------------------------------------------------------------------------
+model:
+  node_hidden: 100
+  depth: 2                         # graph-attention layers (JK-concatenated)
+  attn_heads: 1
+  dropout: 0.30
+
+# ----------------------------------------------------------------------------
+#  Training  (turn-based; semi-supervised bootstrapping between turns)
+# ----------------------------------------------------------------------------
+train:
+  turns: 5                         # 1 = basic (no bootstrapping); 5 = semi
+  epoch_per_turn: 1200
+  lr: 0.005
+  optimizer: "rmsprop"
+  weight_decay: 0.0
+  gamma: 3.0                       # L1 margin
+  csls_k: 10                       # CSLS neighbourhood for bootstrap + eval
+
+# ----------------------------------------------------------------------------
+#  Evaluation
+# ----------------------------------------------------------------------------
+eval:
+  every: 300                       # epochs (within a turn)
+  hits_at: [1, 5, 10]
+  metric: "csls"
+  csls_k: 10
+  eval_chunk: 1024
+  direction: "both"
+
+# ----------------------------------------------------------------------------
+#  Logging & artefacts
+# ----------------------------------------------------------------------------
+logging:
+  output_dir: "experiments"
+  log_file: "training.txt"
+  config_dump: "config_used.yaml"
+  save_best: true
+  save_last: true
+  checkpoint_name: "model.pt"
+  embeddings_name: "embeddings.pt"
+  metrics_csv: "metrics.csv"
+  loss_csv: "loss.csv"
+  plots:
+    loss_curve: "loss_curve.png"
+    metrics_curve: "metrics_curve.png"
+  log_level: "INFO"
