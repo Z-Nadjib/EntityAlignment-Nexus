@@ -1,0 +1,243 @@
+/* =========================================================================
+   EntityAlignment-Nexus - modern documentation theme (works in light & dark schemes)
+   ========================================================================= */
+
+:root {
+  --ea-blue:   #58a6ff;
+  --ea-purple: #a371f7;
+  --ea-pink:   #f778ba;
+  --ea-green:  #3fb950;
+  --ea-grad:   linear-gradient(90deg, #58a6ff 0%, #a371f7 50%, #f778ba 100%);
+  --ea-radius: 14px;
+}
+
+/* Brand accent */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0d1117;
+  --md-default-bg-color: #0b0f17;
+  --md-accent-fg-color: var(--ea-blue);
+  --md-typeset-a-color: #79c0ff;
+}
+[data-md-color-scheme="default"] {
+  --md-accent-fg-color: #6d28d9;
+}
+
+/* Smooth scrolling + nicer base typography */
+html { scroll-behavior: smooth; }
+.md-typeset { line-height: 1.65; }
+
+/* -------------------------------------------------------------------------
+   Animated gradient hero (landing page)
+   ------------------------------------------------------------------------- */
+.ea-hero {
+  position: relative;
+  border-radius: var(--ea-radius);
+  padding: 2.6rem 1.6rem;
+  margin: .4rem 0 1.6rem 0;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(120deg, #1f6feb, #8957e5, #bf4b8a, #1f6feb);
+  background-size: 300% 300%;
+  animation: ea-flow 14s ease infinite;
+  box-shadow: 0 14px 40px rgba(88, 166, 255, 0.28);
+}
+.ea-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(255,255,255,.18), transparent 40%);
+  pointer-events: none;
+}
+.ea-hero h1 { color: #fff; margin: 0 0 .4rem 0; font-weight: 800; letter-spacing: .5px; font-size: 2.3rem; }
+.ea-hero p  { color: #eef; margin: 0 auto; max-width: 46rem; font-size: 1rem; }
+
+@keyframes ea-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Gradient text accent */
+.ea-gradient {
+  background: var(--ea-grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; font-weight: 800;
+}
+
+/* -------------------------------------------------------------------------
+   Headings: gradient accent bar
+   ------------------------------------------------------------------------- */
+.md-typeset h2 {
+  position: relative;
+  padding-left: .8rem;
+  margin-top: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+.md-typeset h2::before {
+  content: "";
+  position: absolute; left: 0; top: .15em; bottom: .15em;
+  width: 5px; border-radius: 6px;
+  background: var(--ea-grad);
+}
+.md-typeset h3 { font-weight: 700; }
+
+/* Horizontal rules become gradient dividers */
+.md-typeset hr {
+  border: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ea-purple), transparent);
+  opacity: .5;
+}
+
+/* -------------------------------------------------------------------------
+   Cards (grid cards) - glow + lift on hover
+   ------------------------------------------------------------------------- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-radius: var(--ea-radius);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  background: linear-gradient(180deg, rgba(88,166,255,.04), transparent);
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(88,166,255,.22),
+              0 0 0 1px rgba(163,113,247,.45) inset;
+}
+.md-typeset .grid.cards > ul > li > hr {
+  background: var(--ea-grad); opacity: .35; height: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   Tables - rounded container, gradient header, row hover, zebra
+   ------------------------------------------------------------------------- */
+.md-typeset table:not([class]) {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 4px 18px rgba(0,0,0,.06);
+}
+.md-typeset table:not([class]) th {
+  background: linear-gradient(90deg, rgba(88,166,255,.16), rgba(163,113,247,.16));
+  font-weight: 700;
+  border: none;
+}
+.md-typeset table:not([class]) td:first-child { font-weight: 600; }
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+.md-typeset table:not([class]) tr:hover {
+  background: rgba(88,166,255,.08);
+  transition: background .15s ease;
+}
+
+/* -------------------------------------------------------------------------
+   Mermaid - present every diagram inside a designed panel
+   ------------------------------------------------------------------------- */
+.md-typeset .mermaid {
+  text-align: center;
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  border-radius: var(--ea-radius);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(88,166,255,.07), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(163,113,247,.07), transparent 45%);
+  box-shadow: 0 6px 22px rgba(0,0,0,.10);
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(88,166,255,.10), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(163,113,247,.10), transparent 45%),
+    #0d1117;
+}
+.md-typeset .mermaid .edgeLabel { font-weight: 600; }
+
+/* -------------------------------------------------------------------------
+   Images / figures
+   ------------------------------------------------------------------------- */
+.md-typeset img { border-radius: 10px; }
+.md-typeset figure img {
+  box-shadow: 0 8px 28px rgba(0,0,0,.30);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset figcaption { opacity: .8; font-size: .82rem; }
+
+/* -------------------------------------------------------------------------
+   Admonitions - rounded with a soft glow
+   ------------------------------------------------------------------------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 12px;
+  border-width: 0 0 0 4px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.10);
+}
+
+/* Code blocks */
+.md-typeset pre > code {
+  border-radius: 12px;
+}
+.md-typeset .highlight { border-radius: 12px; }
+
+/* -------------------------------------------------------------------------
+   Links - animated underline
+   ------------------------------------------------------------------------- */
+.md-typeset a:not(.md-button):not(.headerlink) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--ea-purple), var(--ea-purple));
+  background-size: 0% 2px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size .25s ease;
+}
+.md-typeset a:not(.md-button):not(.headerlink):hover {
+  background-size: 100% 2px;
+}
+
+/* -------------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------------- */
+.md-typeset .md-button {
+  border-radius: 999px;
+  border: 0;
+  font-weight: 700;
+  background: var(--ea-grad);
+  color: #fff !important;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.md-typeset .md-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(163,113,247,.4);
+}
+
+/* -------------------------------------------------------------------------
+   Coloured "pill" labels (model family tags)
+   ------------------------------------------------------------------------- */
+.ea-pill {
+  display: inline-block;
+  padding: .14rem .66rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.ea-pill.structural { background: linear-gradient(90deg,#1f6feb,#58a6ff); }
+.ea-pill.gnn        { background: linear-gradient(90deg,#8957e5,#a371f7); }
+.ea-pill.side       { background: linear-gradient(90deg,#bf4b8a,#f778ba); }
+.ea-pill.sota       { background: linear-gradient(90deg,#238636,#3fb950); }
+
+/* -------------------------------------------------------------------------
+   Navigation tabs - subtle active accent
+   ------------------------------------------------------------------------- */
+.md-tabs { border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+.md-tabs__link { opacity: .85; transition: opacity .15s ease; }
+.md-tabs__link--active, .md-tabs__link:hover { opacity: 1; }
+
+/* Custom scrollbar (dark scheme) */
+[data-md-color-scheme="slate"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-track { background: #0d1117; }
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ea-blue), var(--ea-purple));
+  border-radius: 999px; border: 2px solid #0d1117;
+}

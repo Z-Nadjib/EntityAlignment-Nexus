@@ -1,0 +1,128 @@
+## EntityAlignment-Nexus documentation site.
+## NOTE: replace Z-Nadjib with your GitHub username/org before deploying.
+
+site_name: EntityAlignment-Nexus
+site_description: A unified framework of Entity Alignment models on the DBP15K benchmark.
+site_author: Nadjib ZAHAF
+site_url: https://Z-Nadjib.github.io/EntityAlignment-Nexus/
+
+repo_name: Z-Nadjib/EntityAlignment-Nexus
+repo_url: https://github.com/Z-Nadjib/EntityAlignment-Nexus
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2026 Nadjib ZAHAF - MIT License
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: Inter
+    code: Fira Code
+  palette:
+    # light
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # dark
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Z-Nadjib/EntityAlignment-Nexus
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:zahafndjib@gmail.com
+  generator: false
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Models:
+      - Overview: models/index.md
+      - NAEA: models/naea.md
+      - BootEA: models/bootea.md
+      - AliNet: models/alinet.md
+      - KECG: models/kecg.md
+      - GCN-Align: models/gcnalign.md
+      - JAPE: models/jape.md
+      - DGMC: models/dgmc.md
+      - MRAEA: models/mraea.md
+      - RREA: models/rrea.md
+  - Results: results.md
+  - Roadmap: roadmap.md
+  - About: about.md

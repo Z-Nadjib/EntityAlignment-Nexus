@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#a371f7"/>
+    </linearGradient>
+  </defs>
+  <!-- left knowledge graph -->
+  <circle cx="14" cy="16" r="5" fill="#58a6ff"/>
+  <circle cx="10" cy="40" r="4" fill="#56d4dd"/>
+  <circle cx="22" cy="50" r="4" fill="#3fb950"/>
+  <line x1="14" y1="16" x2="10" y2="40" stroke="#30363d" stroke-width="2"/>
+  <line x1="10" y1="40" x2="22" y2="50" stroke="#30363d" stroke-width="2"/>
+  <!-- right knowledge graph -->
+  <circle cx="50" cy="16" r="5" fill="#a371f7"/>
+  <circle cx="54" cy="40" r="4" fill="#f778ba"/>
+  <circle cx="42" cy="50" r="4" fill="#ffa657"/>
+  <line x1="50" y1="16" x2="54" y2="40" stroke="#30363d" stroke-width="2"/>
+  <line x1="54" y1="40" x2="42" y2="50" stroke="#30363d" stroke-width="2"/>
+  <!-- alignment links -->
+  <line x1="14" y1="16" x2="50" y2="16" stroke="url(#g)" stroke-width="2.5" stroke-dasharray="3 3"/>
+  <line x1="22" y1="50" x2="42" y2="50" stroke="url(#g)" stroke-width="2.5" stroke-dasharray="3 3"/>
+</svg>
