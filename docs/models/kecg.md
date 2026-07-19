@@ -21,7 +21,7 @@ flowchart LR
     Z --> CG["Cross-Graph triplet loss<br/>(even epochs)"]
     Z --> KE["Knowledge-Embedding TransE<br/>(odd epochs)"]
     REL["relation table"] --> KE
-    Z --> EVAL["CSLS eval"]
+    Z --> EVAL["CSLS eval (k=10)"]
     classDef b fill:#3b0764,stroke:#a371f7,stroke-width:2px,color:#f3e8ff;
     class EMB,GAT,Z,CG,KE,REL,EVAL b;
 ```
@@ -52,7 +52,7 @@ DBP15K `zh_en`, 30% seed.
 | | Hit@1 | Hit@10 | MRR |
 |---|:---:|:---:|:---:|
 | KECG (paper) | 0.477 | 0.835 | 0.598 |
-| **This repo** | ~0.42 | ~0.73 | ~0.52 |
+| **This repo** | **0.497** | **0.855** | **0.619** |
 
 <figure markdown>
   ![KECG metrics](../assets/curves/kecg/metrics.png){ width="640" }

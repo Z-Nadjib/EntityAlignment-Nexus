@@ -33,10 +33,10 @@ dependencies = [
 notebook = ["jupyter", "ipykernel", "nbformat"]
 
 [project.scripts]
-naea-train = "src.main:main"
+nexus-train = "src.main:main"
 
 [project.urls]
-Paper = "https://www.ijcai.org/proceedings/2019/0269.pdf"
+Repository = "https://github.com/Z-Nadjib/EntityAlignment-Nexus"
 
 [tool.setuptools.packages.find]
 where = ["."]

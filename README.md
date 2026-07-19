@@ -129,26 +129,27 @@ flowchart LR
 ## Results
 
 DBP15K **`zh_en`**, 30% seed. **Bold** = this repo matches or beats the paper.
-Full tables for `ja_en` / `fr_en` and training curves live in the [results page](docs/results.md).
+Every value is re-scored from the run's best checkpoint under one protocol
+(CSLS k=10, both directions averaged). Training curves live in the [results page](docs/results.md).
 
 | Model | Hit@1 (paper) | **Hit@1 (here)** | Hit@10 (paper) | **Hit@10 (here)** | MRR (paper) | **MRR (here)** |
 |-------|:----:|:----:|:----:|:----:|:----:|:----:|
-| NAEA | 0.650 | ~0.62 | 0.867 | ~0.86 | 0.720 | ~0.70 |
-| BootEA | 0.629 | ~0.56 | 0.847 | ~0.85 | 0.703 | ~0.66 |
-| AliNet | 0.539 | ~0.53 | 0.826 | ~0.81 | 0.628 | ~0.63 |
-| KECG | 0.477 | ~0.42 | 0.835 | ~0.73 | 0.598 | ~0.52 |
-| GCN-Align (SE) | 0.384 | ~0.38 | 0.703 | ~0.68 | - | ~0.49 |
-| JAPE (SE+AE) | 0.412 | **0.425** | 0.745 | **0.761** | 0.490 | **0.537** |
-| DGMC (names) | 0.801 | 0.767 | 0.875 | 0.840 | - | - |
-| MRAEA (base) | 0.638 | **0.659** | 0.882 | **0.898** | 0.729 | **0.746** |
-| MRAEA (+iter) | 0.757 | 0.746 | 0.930 | **0.930** | 0.827 | 0.814 |
-| RREA (basic) | 0.715 | 0.712 | 0.929 | **0.934** | 0.794 | 0.793 |
-| **RREA (semi)** | 0.801 | **0.805** | 0.948 | **0.950** | 0.857 | **0.859** |
+| NAEA | 0.650 | 0.628 | 0.867 | 0.860 | 0.720 | 0.711 |
+| BootEA | 0.629 | 0.543 | 0.847 | **0.851** | 0.703 | 0.653 |
+| AliNet | 0.539 | 0.513 | 0.826 | 0.812 | 0.628 | 0.621 |
+| KECG | 0.477 | **0.497** | 0.835 | **0.855** | 0.598 | **0.619** |
+| GCN-Align (SE) | 0.384 | 0.363 | 0.703 | 0.679 | - | 0.475 |
+| JAPE (SE+AE) | 0.412 | 0.412 | 0.745 | **0.751** | 0.490 | **0.525** |
+| DGMC (names) | 0.801 | 0.753 | 0.875 | 0.836 | - | 0.783 |
+| MRAEA (base) | 0.638 | **0.698** | 0.882 | **0.923** | 0.729 | **0.780** |
+| MRAEA (+iter) | 0.757 | 0.747 | 0.930 | **0.936** | 0.827 | 0.817 |
+| RREA (basic) | 0.715 | **0.715** | 0.929 | **0.932** | 0.794 | **0.794** |
+| **RREA (semi)** | 0.801 | **0.802** | 0.948 | 0.946 | 0.857 | 0.857 |
 
 <div align="center">
 
 **RREA (semi-supervised) is the current top performer in this repo.**
-DGMC, which uses entity *names*, even **beats the paper on `fr_en` (Hit@1 0.939 vs 0.933)**.
+**MRAEA (base)** and **KECG** exceed their published Hit@1 under this protocol.
 
 </div>
 
@@ -192,7 +193,7 @@ EntityAlignment-Nexus/
 ├── configs/               # one YAML per model
 ├── Notebook/              # 9 self-contained, documented notebooks
 └── docs/                  # MkDocs Material documentation site
-#  (training runs are written to a git-ignored logs/ directory)
+#  (training runs are written to a git-ignored experiments/ directory)
 ```
 
 ---
