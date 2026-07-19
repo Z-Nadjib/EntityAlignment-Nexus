@@ -1,0 +1,57 @@
+experiment:
+  name: kecg_zh_en_0_3
+  model: kecg
+  seed: 2024
+  device: cuda
+data:
+  root: Data/dbp15k
+  lang: zh_en
+  fold: '0_3'
+  use_mtranse_format: true
+model:
+  embed_dim: 128
+  n_layers: 2
+  n_heads: 2
+  attn_dropout: 0.0
+  normalize_embeddings: false
+train:
+  epochs: 3000
+  lr: 0.005
+  optimizer: adagrad
+  weight_decay: 0.0
+  grad_clip: 0.0
+  early_stop_patience: 12
+  margin_cg: 3.0
+  margin_ke: 3.0
+  k_cg: 25
+  k_ke: 2
+  use_nns: true
+  update_num: 5
+  ke_batch_size: 200000
+eval:
+  every: 25
+  hits_at:
+  - 1
+  - 5
+  - 10
+  metric: l2
+  csls_k: 3
+  eval_chunk: 1024
+  direction: both
+logging:
+  output_dir: experiments
+  log_file: training.txt
+  config_dump: config_used.yaml
+  save_best: true
+  save_last: true
+  checkpoint_name: model.pt
+  embeddings_name: embeddings.pt
+  metrics_csv: metrics.csv
+  loss_csv: loss.csv
+  plots:
+    loss_curve: loss_curve.png
+    metrics_curve: metrics_curve.png
+  log_level: INFO
+_project_root: /home/nzahaf/EntityAlignment-Nexus
+_config_path: /home/nzahaf/EntityAlignment-Nexus/configs/kecg_dbp15k.yaml
+_run_dir: /home/nzahaf/EntityAlignment-Nexus/experiments/kecg_zh_en_0_3_20260718-044645

@@ -1,0 +1,49 @@
+experiment:
+  name: dgmc_zh_en
+  model: dgmc
+  seed: 2024
+  device: cuda
+data:
+  root: Data/DBP15K
+  pair: zh_en
+  lang: zh_en
+  fold: '0_3'
+model:
+  dim: 256
+  rnd_dim: 32
+  num_layers: 3
+  num_steps: 10
+  k: 25
+  dropout: 0.2
+  normalize: true
+  normalize_features: true
+  temperature: 20.0
+train:
+  epochs: 300
+  refine_after: 100
+  detach_refine: false
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 0.0
+eval:
+  every: 10
+  hits_at:
+  - 1
+  - 10
+logging:
+  output_dir: experiments
+  log_file: training.txt
+  config_dump: config_used.yaml
+  save_best: true
+  save_last: true
+  checkpoint_name: model.pt
+  embeddings_name: embeddings.pt
+  metrics_csv: metrics.csv
+  loss_csv: loss.csv
+  plots:
+    loss_curve: loss_curve.png
+    metrics_curve: metrics_curve.png
+  log_level: INFO
+_project_root: /home/nzahaf/EntityAlignment-Nexus
+_config_path: /home/nzahaf/EntityAlignment-Nexus/configs/dgmc_dbp15k.yaml
+_run_dir: /home/nzahaf/EntityAlignment-Nexus/experiments/dgmc_zh_en_20260718-202824

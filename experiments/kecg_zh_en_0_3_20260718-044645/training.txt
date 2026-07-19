@@ -1,0 +1,254 @@
+04:46:45 | INFO    | Model: kecg | Device: cuda
+04:46:46 | INFO    | Data: {'lang': 'zh_en', 'fold': '0_3', 'num_entities': 38960, 'num_relations': 3024, '|KG1 ents|': 19388, '|KG2 ents|': 19572, '|KG1 triples|': 70414, '|KG2 triples|': 95142, 'train_pairs': 4500, 'test_pairs': 10500}
+04:46:48 | INFO    | Params: 5.38M
+04:46:48 | INFO    | Run directory: /home/nzahaf/EntityAlignment-Nexus/experiments/kecg_zh_en_0_3_20260718-044645
+04:46:48 | INFO    | Device: cuda:0 | entities=38960 edges=298096 rep_dim=128 seed_pairs=4500 test_pairs=10500
+04:46:50 | INFO    | epoch   25/3000 | loss=0.3666
+04:46:50 | INFO    |            [l2r] MRR=0.3502 Hit@1=0.2319 Hit@5=0.4805 Hit@10=0.5980 MR=138.5 | [r2l] MRR=0.3077 Hit@1=0.1995 Hit@5=0.4247 Hit@10=0.5367 MR=203.6 | [avg] MRR=0.3290 Hit@1=0.2157 Hit@5=0.4526 Hit@10=0.5673 MR=171.0
+04:46:51 | INFO    |            -> new best MRR=0.3290 (saved model_best.pt)
+04:46:52 | INFO    | epoch   50/3000 | loss=2.9420
+04:46:52 | INFO    |            [l2r] MRR=0.4098 Hit@1=0.2872 Hit@5=0.5528 Hit@10=0.6637 MR=95.2 | [r2l] MRR=0.3719 Hit@1=0.2544 Hit@5=0.5053 Hit@10=0.6146 MR=134.7 | [avg] MRR=0.3908 Hit@1=0.2708 Hit@5=0.5290 Hit@10=0.6391 MR=114.9
+04:46:52 | INFO    |            -> new best MRR=0.3908 (saved model_best.pt)
+04:46:54 | INFO    | epoch   75/3000 | loss=0.1310
+04:46:54 | INFO    |            [l2r] MRR=0.4417 Hit@1=0.3172 Hit@5=0.5866 Hit@10=0.6964 MR=82.1 | [r2l] MRR=0.4087 Hit@1=0.2890 Hit@5=0.5501 Hit@10=0.6533 MR=115.2 | [avg] MRR=0.4252 Hit@1=0.3031 Hit@5=0.5683 Hit@10=0.6749 MR=98.6
+04:46:54 | INFO    |            -> new best MRR=0.4252 (saved model_best.pt)
+04:46:56 | INFO    | epoch  100/3000 | loss=2.9174
+04:46:56 | INFO    |            [l2r] MRR=0.4662 Hit@1=0.3420 Hit@5=0.6151 Hit@10=0.7219 MR=75.9 | [r2l] MRR=0.4361 Hit@1=0.3154 Hit@5=0.5820 Hit@10=0.6828 MR=103.3 | [avg] MRR=0.4511 Hit@1=0.3287 Hit@5=0.5986 Hit@10=0.7023 MR=89.6
+04:46:56 | INFO    |            -> new best MRR=0.4511 (saved model_best.pt)
+04:46:58 | INFO    | epoch  125/3000 | loss=0.0722
+04:46:58 | INFO    |            [l2r] MRR=0.4819 Hit@1=0.3579 Hit@5=0.6295 Hit@10=0.7358 MR=72.3 | [r2l] MRR=0.4543 Hit@1=0.3326 Hit@5=0.6018 Hit@10=0.7038 MR=94.7 | [avg] MRR=0.4681 Hit@1=0.3452 Hit@5=0.6157 Hit@10=0.7198 MR=83.5
+04:46:58 | INFO    |            -> new best MRR=0.4681 (saved model_best.pt)
+04:46:59 | INFO    | epoch  150/3000 | loss=2.8971
+04:46:59 | INFO    |            [l2r] MRR=0.4974 Hit@1=0.3729 Hit@5=0.6484 Hit@10=0.7482 MR=70.3 | [r2l] MRR=0.4726 Hit@1=0.3512 Hit@5=0.6180 Hit@10=0.7190 MR=88.5 | [avg] MRR=0.4850 Hit@1=0.3620 Hit@5=0.6332 Hit@10=0.7336 MR=79.4
+04:47:00 | INFO    |            -> new best MRR=0.4850 (saved model_best.pt)
+04:47:01 | INFO    | epoch  175/3000 | loss=0.0564
+04:47:01 | INFO    |            [l2r] MRR=0.5088 Hit@1=0.3850 Hit@5=0.6593 Hit@10=0.7571 MR=69.6 | [r2l] MRR=0.4846 Hit@1=0.3627 Hit@5=0.6284 Hit@10=0.7308 MR=84.5 | [avg] MRR=0.4967 Hit@1=0.3739 Hit@5=0.6439 Hit@10=0.7440 MR=77.1
+04:47:02 | INFO    |            -> new best MRR=0.4967 (saved model_best.pt)
+04:47:03 | INFO    | epoch  200/3000 | loss=2.8797
+04:47:03 | INFO    |            [l2r] MRR=0.5190 Hit@1=0.3970 Hit@5=0.6690 Hit@10=0.7668 MR=69.0 | [r2l] MRR=0.4967 Hit@1=0.3757 Hit@5=0.6429 Hit@10=0.7412 MR=80.9 | [avg] MRR=0.5079 Hit@1=0.3863 Hit@5=0.6559 Hit@10=0.7540 MR=74.9
+04:47:04 | INFO    |            -> new best MRR=0.5079 (saved model_best.pt)
+04:47:05 | INFO    | epoch  225/3000 | loss=0.0526
+04:47:05 | INFO    |            [l2r] MRR=0.5253 Hit@1=0.4024 Hit@5=0.6765 Hit@10=0.7726 MR=68.6 | [r2l] MRR=0.5051 Hit@1=0.3841 Hit@5=0.6504 Hit@10=0.7484 MR=78.3 | [avg] MRR=0.5152 Hit@1=0.3932 Hit@5=0.6634 Hit@10=0.7605 MR=73.5
+04:47:06 | INFO    |            -> new best MRR=0.5152 (saved model_best.pt)
+04:47:07 | INFO    | epoch  250/3000 | loss=2.8632
+04:47:07 | INFO    |            [l2r] MRR=0.5305 Hit@1=0.4070 Hit@5=0.6819 Hit@10=0.7795 MR=67.9 | [r2l] MRR=0.5142 Hit@1=0.3946 Hit@5=0.6584 Hit@10=0.7560 MR=75.7 | [avg] MRR=0.5223 Hit@1=0.4008 Hit@5=0.6701 Hit@10=0.7678 MR=71.8
+04:47:08 | INFO    |            -> new best MRR=0.5223 (saved model_best.pt)
+04:47:09 | INFO    | epoch  275/3000 | loss=0.0508
+04:47:09 | INFO    |            [l2r] MRR=0.5368 Hit@1=0.4141 Hit@5=0.6867 Hit@10=0.7817 MR=67.5 | [r2l] MRR=0.5206 Hit@1=0.4009 Hit@5=0.6648 Hit@10=0.7600 MR=73.7 | [avg] MRR=0.5287 Hit@1=0.4075 Hit@5=0.6757 Hit@10=0.7709 MR=70.6
+04:47:10 | INFO    |            -> new best MRR=0.5287 (saved model_best.pt)
+04:47:11 | INFO    | epoch  300/3000 | loss=2.8471
+04:47:11 | INFO    |            [l2r] MRR=0.5415 Hit@1=0.4194 Hit@5=0.6914 Hit@10=0.7868 MR=67.0 | [r2l] MRR=0.5261 Hit@1=0.4064 Hit@5=0.6711 Hit@10=0.7650 MR=71.5 | [avg] MRR=0.5338 Hit@1=0.4129 Hit@5=0.6813 Hit@10=0.7759 MR=69.3
+04:47:11 | INFO    |            -> new best MRR=0.5338 (saved model_best.pt)
+04:47:13 | INFO    | epoch  325/3000 | loss=0.0505
+04:47:13 | INFO    |            [l2r] MRR=0.5445 Hit@1=0.4221 Hit@5=0.6950 Hit@10=0.7904 MR=66.7 | [r2l] MRR=0.5288 Hit@1=0.4079 Hit@5=0.6742 Hit@10=0.7689 MR=70.1 | [avg] MRR=0.5366 Hit@1=0.4150 Hit@5=0.6846 Hit@10=0.7796 MR=68.4
+04:47:13 | INFO    |            -> new best MRR=0.5366 (saved model_best.pt)
+04:47:15 | INFO    | epoch  350/3000 | loss=2.8309
+04:47:15 | INFO    |            [l2r] MRR=0.5480 Hit@1=0.4254 Hit@5=0.6987 Hit@10=0.7934 MR=66.3 | [r2l] MRR=0.5334 Hit@1=0.4130 Hit@5=0.6779 Hit@10=0.7724 MR=68.5 | [avg] MRR=0.5407 Hit@1=0.4192 Hit@5=0.6883 Hit@10=0.7829 MR=67.4
+04:47:15 | INFO    |            -> new best MRR=0.5407 (saved model_best.pt)
+04:47:17 | INFO    | epoch  375/3000 | loss=0.0506
+04:47:17 | INFO    |            [l2r] MRR=0.5511 Hit@1=0.4290 Hit@5=0.7012 Hit@10=0.7974 MR=66.1 | [r2l] MRR=0.5369 Hit@1=0.4170 Hit@5=0.6808 Hit@10=0.7753 MR=67.4 | [avg] MRR=0.5440 Hit@1=0.4230 Hit@5=0.6910 Hit@10=0.7864 MR=66.8
+04:47:17 | INFO    |            -> new best MRR=0.5440 (saved model_best.pt)
+04:47:19 | INFO    | epoch  400/3000 | loss=2.8146
+04:47:19 | INFO    |            [l2r] MRR=0.5544 Hit@1=0.4329 Hit@5=0.7041 Hit@10=0.8000 MR=65.7 | [r2l] MRR=0.5403 Hit@1=0.4208 Hit@5=0.6831 Hit@10=0.7778 MR=66.0 | [avg] MRR=0.5473 Hit@1=0.4268 Hit@5=0.6936 Hit@10=0.7889 MR=65.9
+04:47:19 | INFO    |            -> new best MRR=0.5473 (saved model_best.pt)
+04:47:21 | INFO    | epoch  425/3000 | loss=0.0495
+04:47:21 | INFO    |            [l2r] MRR=0.5563 Hit@1=0.4348 Hit@5=0.7069 Hit@10=0.8028 MR=65.5 | [r2l] MRR=0.5428 Hit@1=0.4242 Hit@5=0.6853 Hit@10=0.7796 MR=65.2 | [avg] MRR=0.5496 Hit@1=0.4295 Hit@5=0.6961 Hit@10=0.7912 MR=65.3
+04:47:21 | INFO    |            -> new best MRR=0.5496 (saved model_best.pt)
+04:47:22 | INFO    | epoch  450/3000 | loss=2.7979
+04:47:22 | INFO    |            [l2r] MRR=0.5592 Hit@1=0.4379 Hit@5=0.7101 Hit@10=0.8032 MR=65.2 | [r2l] MRR=0.5450 Hit@1=0.4255 Hit@5=0.6898 Hit@10=0.7833 MR=64.2 | [avg] MRR=0.5521 Hit@1=0.4317 Hit@5=0.7000 Hit@10=0.7933 MR=64.7
+04:47:23 | INFO    |            -> new best MRR=0.5521 (saved model_best.pt)
+04:47:24 | INFO    | epoch  475/3000 | loss=0.0510
+04:47:24 | INFO    |            [l2r] MRR=0.5619 Hit@1=0.4414 Hit@5=0.7127 Hit@10=0.8055 MR=64.9 | [r2l] MRR=0.5474 Hit@1=0.4283 Hit@5=0.6928 Hit@10=0.7852 MR=63.7 | [avg] MRR=0.5547 Hit@1=0.4349 Hit@5=0.7027 Hit@10=0.7954 MR=64.3
+04:47:25 | INFO    |            -> new best MRR=0.5547 (saved model_best.pt)
+04:47:26 | INFO    | epoch  500/3000 | loss=2.7809
+04:47:26 | INFO    |            [l2r] MRR=0.5637 Hit@1=0.4428 Hit@5=0.7141 Hit@10=0.8075 MR=64.5 | [r2l] MRR=0.5493 Hit@1=0.4297 Hit@5=0.6950 Hit@10=0.7871 MR=62.8 | [avg] MRR=0.5565 Hit@1=0.4362 Hit@5=0.7045 Hit@10=0.7973 MR=63.7
+04:47:27 | INFO    |            -> new best MRR=0.5565 (saved model_best.pt)
+04:47:28 | INFO    | epoch  525/3000 | loss=0.0509
+04:47:28 | INFO    |            [l2r] MRR=0.5653 Hit@1=0.4447 Hit@5=0.7168 Hit@10=0.8099 MR=64.4 | [r2l] MRR=0.5511 Hit@1=0.4318 Hit@5=0.6968 Hit@10=0.7886 MR=62.3 | [avg] MRR=0.5582 Hit@1=0.4382 Hit@5=0.7068 Hit@10=0.7992 MR=63.4
+04:47:29 | INFO    |            -> new best MRR=0.5582 (saved model_best.pt)
+04:47:30 | INFO    | epoch  550/3000 | loss=2.7634
+04:47:30 | INFO    |            [l2r] MRR=0.5663 Hit@1=0.4451 Hit@5=0.7187 Hit@10=0.8111 MR=64.0 | [r2l] MRR=0.5529 Hit@1=0.4334 Hit@5=0.6990 Hit@10=0.7904 MR=61.5 | [avg] MRR=0.5596 Hit@1=0.4393 Hit@5=0.7088 Hit@10=0.8008 MR=62.8
+04:47:30 | INFO    |            -> new best MRR=0.5596 (saved model_best.pt)
+04:47:32 | INFO    | epoch  575/3000 | loss=0.0509
+04:47:32 | INFO    |            [l2r] MRR=0.5674 Hit@1=0.4463 Hit@5=0.7199 Hit@10=0.8125 MR=63.8 | [r2l] MRR=0.5543 Hit@1=0.4348 Hit@5=0.7001 Hit@10=0.7913 MR=61.0 | [avg] MRR=0.5608 Hit@1=0.4405 Hit@5=0.7100 Hit@10=0.8019 MR=62.4
+04:47:32 | INFO    |            -> new best MRR=0.5608 (saved model_best.pt)
+04:47:34 | INFO    | epoch  600/3000 | loss=2.7454
+04:47:34 | INFO    |            [l2r] MRR=0.5690 Hit@1=0.4476 Hit@5=0.7220 Hit@10=0.8133 MR=63.5 | [r2l] MRR=0.5555 Hit@1=0.4360 Hit@5=0.7024 Hit@10=0.7928 MR=60.3 | [avg] MRR=0.5622 Hit@1=0.4418 Hit@5=0.7122 Hit@10=0.8030 MR=61.9
+04:47:34 | INFO    |            -> new best MRR=0.5622 (saved model_best.pt)
+04:47:36 | INFO    | epoch  625/3000 | loss=0.0516
+04:47:36 | INFO    |            [l2r] MRR=0.5689 Hit@1=0.4466 Hit@5=0.7230 Hit@10=0.8145 MR=63.2 | [r2l] MRR=0.5569 Hit@1=0.4374 Hit@5=0.7024 Hit@10=0.7935 MR=59.9 | [avg] MRR=0.5629 Hit@1=0.4420 Hit@5=0.7127 Hit@10=0.8040 MR=61.5
+04:47:36 | INFO    |            -> new best MRR=0.5629 (saved model_best.pt)
+04:47:38 | INFO    | epoch  650/3000 | loss=2.7269
+04:47:38 | INFO    |            [l2r] MRR=0.5700 Hit@1=0.4479 Hit@5=0.7236 Hit@10=0.8162 MR=62.9 | [r2l] MRR=0.5581 Hit@1=0.4379 Hit@5=0.7033 Hit@10=0.7956 MR=59.2 | [avg] MRR=0.5641 Hit@1=0.4429 Hit@5=0.7135 Hit@10=0.8059 MR=61.0
+04:47:38 | INFO    |            -> new best MRR=0.5641 (saved model_best.pt)
+04:47:39 | INFO    | epoch  675/3000 | loss=0.0520
+04:47:39 | INFO    |            [l2r] MRR=0.5709 Hit@1=0.4483 Hit@5=0.7262 Hit@10=0.8166 MR=62.8 | [r2l] MRR=0.5598 Hit@1=0.4403 Hit@5=0.7048 Hit@10=0.7962 MR=58.8 | [avg] MRR=0.5653 Hit@1=0.4443 Hit@5=0.7155 Hit@10=0.8064 MR=60.8
+04:47:40 | INFO    |            -> new best MRR=0.5653 (saved model_best.pt)
+04:47:41 | INFO    | epoch  700/3000 | loss=2.7077
+04:47:41 | INFO    |            [l2r] MRR=0.5718 Hit@1=0.4491 Hit@5=0.7267 Hit@10=0.8174 MR=62.5 | [r2l] MRR=0.5617 Hit@1=0.4423 Hit@5=0.7053 Hit@10=0.7983 MR=58.4 | [avg] MRR=0.5667 Hit@1=0.4457 Hit@5=0.7160 Hit@10=0.8079 MR=60.4
+04:47:42 | INFO    |            -> new best MRR=0.5667 (saved model_best.pt)
+04:47:43 | INFO    | epoch  725/3000 | loss=0.0520
+04:47:43 | INFO    |            [l2r] MRR=0.5732 Hit@1=0.4509 Hit@5=0.7279 Hit@10=0.8183 MR=62.4 | [r2l] MRR=0.5623 Hit@1=0.4423 Hit@5=0.7074 Hit@10=0.7997 MR=58.2 | [avg] MRR=0.5677 Hit@1=0.4466 Hit@5=0.7177 Hit@10=0.8090 MR=60.3
+04:47:44 | INFO    |            -> new best MRR=0.5677 (saved model_best.pt)
+04:47:45 | INFO    | epoch  750/3000 | loss=2.6880
+04:47:45 | INFO    |            [l2r] MRR=0.5744 Hit@1=0.4523 Hit@5=0.7287 Hit@10=0.8194 MR=62.2 | [r2l] MRR=0.5635 Hit@1=0.4435 Hit@5=0.7092 Hit@10=0.8012 MR=57.8 | [avg] MRR=0.5689 Hit@1=0.4479 Hit@5=0.7190 Hit@10=0.8103 MR=60.0
+04:47:46 | INFO    |            -> new best MRR=0.5689 (saved model_best.pt)
+04:47:47 | INFO    | epoch  775/3000 | loss=0.0551
+04:47:47 | INFO    |            [l2r] MRR=0.5755 Hit@1=0.4542 Hit@5=0.7290 Hit@10=0.8203 MR=62.0 | [r2l] MRR=0.5645 Hit@1=0.4450 Hit@5=0.7106 Hit@10=0.8019 MR=57.4 | [avg] MRR=0.5700 Hit@1=0.4496 Hit@5=0.7198 Hit@10=0.8111 MR=59.7
+04:47:48 | INFO    |            -> new best MRR=0.5700 (saved model_best.pt)
+04:47:49 | INFO    | epoch  800/3000 | loss=2.6676
+04:47:49 | INFO    |            [l2r] MRR=0.5762 Hit@1=0.4549 Hit@5=0.7298 Hit@10=0.8213 MR=61.7 | [r2l] MRR=0.5658 Hit@1=0.4467 Hit@5=0.7112 Hit@10=0.8026 MR=57.0 | [avg] MRR=0.5710 Hit@1=0.4508 Hit@5=0.7205 Hit@10=0.8120 MR=59.4
+04:47:50 | INFO    |            -> new best MRR=0.5710 (saved model_best.pt)
+04:47:51 | INFO    | epoch  825/3000 | loss=0.0551
+04:47:51 | INFO    |            [l2r] MRR=0.5767 Hit@1=0.4553 Hit@5=0.7300 Hit@10=0.8213 MR=61.6 | [r2l] MRR=0.5672 Hit@1=0.4485 Hit@5=0.7121 Hit@10=0.8030 MR=56.9 | [avg] MRR=0.5720 Hit@1=0.4519 Hit@5=0.7210 Hit@10=0.8122 MR=59.2
+04:47:52 | INFO    |            -> new best MRR=0.5720 (saved model_best.pt)
+04:47:53 | INFO    | epoch  850/3000 | loss=2.6465
+04:47:53 | INFO    |            [l2r] MRR=0.5773 Hit@1=0.4560 Hit@5=0.7303 Hit@10=0.8215 MR=61.4 | [r2l] MRR=0.5678 Hit@1=0.4487 Hit@5=0.7132 Hit@10=0.8034 MR=56.3 | [avg] MRR=0.5725 Hit@1=0.4523 Hit@5=0.7218 Hit@10=0.8125 MR=58.9
+04:47:54 | INFO    |            -> new best MRR=0.5725 (saved model_best.pt)
+04:47:55 | INFO    | epoch  875/3000 | loss=0.0563
+04:47:55 | INFO    |            [l2r] MRR=0.5778 Hit@1=0.4564 Hit@5=0.7310 Hit@10=0.8222 MR=61.3 | [r2l] MRR=0.5685 Hit@1=0.4493 Hit@5=0.7145 Hit@10=0.8046 MR=56.1 | [avg] MRR=0.5732 Hit@1=0.4529 Hit@5=0.7228 Hit@10=0.8134 MR=58.7
+04:47:56 | INFO    |            -> new best MRR=0.5732 (saved model_best.pt)
+04:47:57 | INFO    | epoch  900/3000 | loss=2.6247
+04:47:57 | INFO    |            [l2r] MRR=0.5783 Hit@1=0.4567 Hit@5=0.7316 Hit@10=0.8226 MR=61.1 | [r2l] MRR=0.5696 Hit@1=0.4505 Hit@5=0.7146 Hit@10=0.8053 MR=55.7 | [avg] MRR=0.5739 Hit@1=0.4536 Hit@5=0.7231 Hit@10=0.8140 MR=58.4
+04:47:57 | INFO    |            -> new best MRR=0.5739 (saved model_best.pt)
+04:47:59 | INFO    | epoch  925/3000 | loss=0.0581
+04:47:59 | INFO    |            [l2r] MRR=0.5791 Hit@1=0.4578 Hit@5=0.7319 Hit@10=0.8231 MR=61.1 | [r2l] MRR=0.5698 Hit@1=0.4505 Hit@5=0.7162 Hit@10=0.8053 MR=55.5 | [avg] MRR=0.5745 Hit@1=0.4541 Hit@5=0.7240 Hit@10=0.8142 MR=58.3
+04:47:59 | INFO    |            -> new best MRR=0.5745 (saved model_best.pt)
+04:48:01 | INFO    | epoch  950/3000 | loss=2.6023
+04:48:01 | INFO    |            [l2r] MRR=0.5796 Hit@1=0.4583 Hit@5=0.7323 Hit@10=0.8250 MR=61.0 | [r2l] MRR=0.5710 Hit@1=0.4525 Hit@5=0.7170 Hit@10=0.8066 MR=55.2 | [avg] MRR=0.5753 Hit@1=0.4554 Hit@5=0.7246 Hit@10=0.8158 MR=58.1
+04:48:01 | INFO    |            -> new best MRR=0.5753 (saved model_best.pt)
+04:48:03 | INFO    | epoch  975/3000 | loss=0.0587
+04:48:03 | INFO    |            [l2r] MRR=0.5799 Hit@1=0.4582 Hit@5=0.7330 Hit@10=0.8248 MR=60.9 | [r2l] MRR=0.5719 Hit@1=0.4533 Hit@5=0.7179 Hit@10=0.8078 MR=55.2 | [avg] MRR=0.5759 Hit@1=0.4558 Hit@5=0.7255 Hit@10=0.8163 MR=58.0
+04:48:03 | INFO    |            -> new best MRR=0.5759 (saved model_best.pt)
+04:48:05 | INFO    | epoch 1000/3000 | loss=2.5792
+04:48:05 | INFO    |            [l2r] MRR=0.5810 Hit@1=0.4594 Hit@5=0.7332 Hit@10=0.8252 MR=60.7 | [r2l] MRR=0.5725 Hit@1=0.4539 Hit@5=0.7185 Hit@10=0.8093 MR=54.8 | [avg] MRR=0.5768 Hit@1=0.4567 Hit@5=0.7259 Hit@10=0.8173 MR=57.7
+04:48:05 | INFO    |            -> new best MRR=0.5768 (saved model_best.pt)
+04:48:06 | INFO    | epoch 1025/3000 | loss=0.0589
+04:48:07 | INFO    |            [l2r] MRR=0.5814 Hit@1=0.4599 Hit@5=0.7340 Hit@10=0.8256 MR=60.6 | [r2l] MRR=0.5732 Hit@1=0.4547 Hit@5=0.7196 Hit@10=0.8095 MR=54.6 | [avg] MRR=0.5773 Hit@1=0.4573 Hit@5=0.7268 Hit@10=0.8176 MR=57.6
+04:48:07 | INFO    |            -> new best MRR=0.5773 (saved model_best.pt)
+04:48:08 | INFO    | epoch 1050/3000 | loss=2.5554
+04:48:08 | INFO    |            [l2r] MRR=0.5815 Hit@1=0.4602 Hit@5=0.7343 Hit@10=0.8270 MR=60.5 | [r2l] MRR=0.5739 Hit@1=0.4551 Hit@5=0.7205 Hit@10=0.8102 MR=54.3 | [avg] MRR=0.5777 Hit@1=0.4577 Hit@5=0.7274 Hit@10=0.8186 MR=57.4
+04:48:09 | INFO    |            -> new best MRR=0.5777 (saved model_best.pt)
+04:48:10 | INFO    | epoch 1075/3000 | loss=0.0612
+04:48:10 | INFO    |            [l2r] MRR=0.5827 Hit@1=0.4618 Hit@5=0.7345 Hit@10=0.8269 MR=60.5 | [r2l] MRR=0.5744 Hit@1=0.4554 Hit@5=0.7215 Hit@10=0.8100 MR=54.2 | [avg] MRR=0.5785 Hit@1=0.4586 Hit@5=0.7280 Hit@10=0.8184 MR=57.3
+04:48:11 | INFO    |            -> new best MRR=0.5785 (saved model_best.pt)
+04:48:12 | INFO    | epoch 1100/3000 | loss=2.5308
+04:48:12 | INFO    |            [l2r] MRR=0.5830 Hit@1=0.4619 Hit@5=0.7353 Hit@10=0.8268 MR=60.3 | [r2l] MRR=0.5744 Hit@1=0.4550 Hit@5=0.7226 Hit@10=0.8108 MR=54.0 | [avg] MRR=0.5787 Hit@1=0.4584 Hit@5=0.7290 Hit@10=0.8188 MR=57.2
+04:48:13 | INFO    |            -> new best MRR=0.5787 (saved model_best.pt)
+04:48:14 | INFO    | epoch 1125/3000 | loss=0.0616
+04:48:14 | INFO    |            [l2r] MRR=0.5834 Hit@1=0.4624 Hit@5=0.7349 Hit@10=0.8266 MR=60.3 | [r2l] MRR=0.5750 Hit@1=0.4553 Hit@5=0.7231 Hit@10=0.8109 MR=53.9 | [avg] MRR=0.5792 Hit@1=0.4589 Hit@5=0.7290 Hit@10=0.8187 MR=57.1
+04:48:15 | INFO    |            -> new best MRR=0.5792 (saved model_best.pt)
+04:48:16 | INFO    | epoch 1150/3000 | loss=2.5056
+04:48:16 | INFO    |            [l2r] MRR=0.5835 Hit@1=0.4622 Hit@5=0.7348 Hit@10=0.8265 MR=60.2 | [r2l] MRR=0.5756 Hit@1=0.4560 Hit@5=0.7232 Hit@10=0.8113 MR=53.6 | [avg] MRR=0.5795 Hit@1=0.4591 Hit@5=0.7290 Hit@10=0.8189 MR=56.9
+04:48:17 | INFO    |            -> new best MRR=0.5795 (saved model_best.pt)
+04:48:18 | INFO    | epoch 1175/3000 | loss=0.0639
+04:48:18 | INFO    |            [l2r] MRR=0.5834 Hit@1=0.4620 Hit@5=0.7348 Hit@10=0.8275 MR=60.2 | [r2l] MRR=0.5759 Hit@1=0.4562 Hit@5=0.7239 Hit@10=0.8114 MR=53.7 | [avg] MRR=0.5797 Hit@1=0.4591 Hit@5=0.7293 Hit@10=0.8195 MR=56.9
+04:48:19 | INFO    |            -> new best MRR=0.5797 (saved model_best.pt)
+04:48:20 | INFO    | epoch 1200/3000 | loss=2.4797
+04:48:20 | INFO    |            [l2r] MRR=0.5838 Hit@1=0.4626 Hit@5=0.7356 Hit@10=0.8282 MR=60.2 | [r2l] MRR=0.5765 Hit@1=0.4565 Hit@5=0.7236 Hit@10=0.8126 MR=53.6 | [avg] MRR=0.5801 Hit@1=0.4595 Hit@5=0.7296 Hit@10=0.8204 MR=56.9
+04:48:21 | INFO    |            -> new best MRR=0.5801 (saved model_best.pt)
+04:48:22 | INFO    | epoch 1225/3000 | loss=0.0663
+04:48:22 | INFO    |            [l2r] MRR=0.5841 Hit@1=0.4631 Hit@5=0.7362 Hit@10=0.8285 MR=60.2 | [r2l] MRR=0.5766 Hit@1=0.4564 Hit@5=0.7239 Hit@10=0.8128 MR=53.6 | [avg] MRR=0.5804 Hit@1=0.4598 Hit@5=0.7300 Hit@10=0.8206 MR=56.9
+04:48:23 | INFO    |            -> new best MRR=0.5804 (saved model_best.pt)
+04:48:24 | INFO    | epoch 1250/3000 | loss=2.4530
+04:48:24 | INFO    |            [l2r] MRR=0.5848 Hit@1=0.4643 Hit@5=0.7361 Hit@10=0.8292 MR=60.1 | [r2l] MRR=0.5771 Hit@1=0.4566 Hit@5=0.7249 Hit@10=0.8122 MR=53.4 | [avg] MRR=0.5810 Hit@1=0.4604 Hit@5=0.7305 Hit@10=0.8207 MR=56.7
+04:48:25 | INFO    |            -> new best MRR=0.5810 (saved model_best.pt)
+04:48:26 | INFO    | epoch 1275/3000 | loss=0.0671
+04:48:26 | INFO    |            [l2r] MRR=0.5852 Hit@1=0.4647 Hit@5=0.7363 Hit@10=0.8290 MR=60.1 | [r2l] MRR=0.5775 Hit@1=0.4570 Hit@5=0.7252 Hit@10=0.8128 MR=53.4 | [avg] MRR=0.5814 Hit@1=0.4608 Hit@5=0.7308 Hit@10=0.8209 MR=56.7
+04:48:27 | INFO    |            -> new best MRR=0.5814 (saved model_best.pt)
+04:48:28 | INFO    | epoch 1300/3000 | loss=2.4257
+04:48:28 | INFO    |            [l2r] MRR=0.5849 Hit@1=0.4642 Hit@5=0.7356 Hit@10=0.8298 MR=60.0 | [r2l] MRR=0.5783 Hit@1=0.4582 Hit@5=0.7259 Hit@10=0.8122 MR=53.2 | [avg] MRR=0.5816 Hit@1=0.4612 Hit@5=0.7308 Hit@10=0.8210 MR=56.6
+04:48:29 | INFO    |            -> new best MRR=0.5816 (saved model_best.pt)
+04:48:30 | INFO    | epoch 1325/3000 | loss=0.0691
+04:48:30 | INFO    |            [l2r] MRR=0.5850 Hit@1=0.4643 Hit@5=0.7362 Hit@10=0.8297 MR=60.1 | [r2l] MRR=0.5787 Hit@1=0.4587 Hit@5=0.7266 Hit@10=0.8124 MR=53.2 | [avg] MRR=0.5819 Hit@1=0.4615 Hit@5=0.7314 Hit@10=0.8210 MR=56.6
+04:48:31 | INFO    |            -> new best MRR=0.5819 (saved model_best.pt)
+04:48:32 | INFO    | epoch 1350/3000 | loss=2.3975
+04:48:32 | INFO    |            [l2r] MRR=0.5857 Hit@1=0.4651 Hit@5=0.7366 Hit@10=0.8297 MR=59.9 | [r2l] MRR=0.5789 Hit@1=0.4586 Hit@5=0.7273 Hit@10=0.8126 MR=53.1 | [avg] MRR=0.5823 Hit@1=0.4619 Hit@5=0.7320 Hit@10=0.8211 MR=56.5
+04:48:33 | INFO    |            -> new best MRR=0.5823 (saved model_best.pt)
+04:48:34 | INFO    | epoch 1375/3000 | loss=0.0707
+04:48:34 | INFO    |            [l2r] MRR=0.5861 Hit@1=0.4659 Hit@5=0.7370 Hit@10=0.8290 MR=59.9 | [r2l] MRR=0.5797 Hit@1=0.4596 Hit@5=0.7272 Hit@10=0.8128 MR=53.1 | [avg] MRR=0.5829 Hit@1=0.4628 Hit@5=0.7321 Hit@10=0.8209 MR=56.5
+04:48:35 | INFO    |            -> new best MRR=0.5829 (saved model_best.pt)
+04:48:36 | INFO    | epoch 1400/3000 | loss=2.3687
+04:48:36 | INFO    |            [l2r] MRR=0.5855 Hit@1=0.4646 Hit@5=0.7370 Hit@10=0.8288 MR=59.9 | [r2l] MRR=0.5800 Hit@1=0.4599 Hit@5=0.7283 Hit@10=0.8131 MR=52.9 | [avg] MRR=0.5828 Hit@1=0.4622 Hit@5=0.7326 Hit@10=0.8210 MR=56.4
+04:48:38 | INFO    | epoch 1425/3000 | loss=0.0721
+04:48:38 | INFO    |            [l2r] MRR=0.5858 Hit@1=0.4650 Hit@5=0.7370 Hit@10=0.8292 MR=59.9 | [r2l] MRR=0.5805 Hit@1=0.4608 Hit@5=0.7281 Hit@10=0.8138 MR=53.0 | [avg] MRR=0.5832 Hit@1=0.4629 Hit@5=0.7326 Hit@10=0.8215 MR=56.5
+04:48:38 | INFO    |            -> new best MRR=0.5832 (saved model_best.pt)
+04:48:40 | INFO    | epoch 1450/3000 | loss=2.3389
+04:48:40 | INFO    |            [l2r] MRR=0.5858 Hit@1=0.4644 Hit@5=0.7375 Hit@10=0.8295 MR=59.8 | [r2l] MRR=0.5806 Hit@1=0.4608 Hit@5=0.7294 Hit@10=0.8140 MR=52.9 | [avg] MRR=0.5832 Hit@1=0.4626 Hit@5=0.7335 Hit@10=0.8218 MR=56.4
+04:48:40 | INFO    |            -> new best MRR=0.5832 (saved model_best.pt)
+04:48:42 | INFO    | epoch 1475/3000 | loss=0.0735
+04:48:42 | INFO    |            [l2r] MRR=0.5863 Hit@1=0.4653 Hit@5=0.7372 Hit@10=0.8294 MR=59.9 | [r2l] MRR=0.5811 Hit@1=0.4616 Hit@5=0.7287 Hit@10=0.8149 MR=52.9 | [avg] MRR=0.5837 Hit@1=0.4635 Hit@5=0.7330 Hit@10=0.8221 MR=56.4
+04:48:42 | INFO    |            -> new best MRR=0.5837 (saved model_best.pt)
+04:48:44 | INFO    | epoch 1500/3000 | loss=2.3085
+04:48:44 | INFO    |            [l2r] MRR=0.5858 Hit@1=0.4646 Hit@5=0.7370 Hit@10=0.8296 MR=59.9 | [r2l] MRR=0.5812 Hit@1=0.4616 Hit@5=0.7291 Hit@10=0.8150 MR=52.8 | [avg] MRR=0.5835 Hit@1=0.4631 Hit@5=0.7330 Hit@10=0.8223 MR=56.4
+04:48:46 | INFO    | epoch 1525/3000 | loss=0.0777
+04:48:46 | INFO    |            [l2r] MRR=0.5862 Hit@1=0.4650 Hit@5=0.7377 Hit@10=0.8301 MR=60.0 | [r2l] MRR=0.5815 Hit@1=0.4619 Hit@5=0.7290 Hit@10=0.8150 MR=52.8 | [avg] MRR=0.5838 Hit@1=0.4635 Hit@5=0.7334 Hit@10=0.8225 MR=56.4
+04:48:47 | INFO    |            -> new best MRR=0.5838 (saved model_best.pt)
+04:48:48 | INFO    | epoch 1550/3000 | loss=2.2771
+04:48:48 | INFO    |            [l2r] MRR=0.5864 Hit@1=0.4655 Hit@5=0.7383 Hit@10=0.8300 MR=59.9 | [r2l] MRR=0.5811 Hit@1=0.4611 Hit@5=0.7292 Hit@10=0.8156 MR=52.7 | [avg] MRR=0.5837 Hit@1=0.4633 Hit@5=0.7338 Hit@10=0.8228 MR=56.3
+04:48:50 | INFO    | epoch 1575/3000 | loss=0.0778
+04:48:50 | INFO    |            [l2r] MRR=0.5868 Hit@1=0.4660 Hit@5=0.7389 Hit@10=0.8302 MR=60.0 | [r2l] MRR=0.5817 Hit@1=0.4620 Hit@5=0.7302 Hit@10=0.8151 MR=52.8 | [avg] MRR=0.5842 Hit@1=0.4640 Hit@5=0.7345 Hit@10=0.8227 MR=56.4
+04:48:50 | INFO    |            -> new best MRR=0.5842 (saved model_best.pt)
+04:48:52 | INFO    | epoch 1600/3000 | loss=2.2451
+04:48:52 | INFO    |            [l2r] MRR=0.5868 Hit@1=0.4661 Hit@5=0.7390 Hit@10=0.8298 MR=60.0 | [r2l] MRR=0.5818 Hit@1=0.4617 Hit@5=0.7298 Hit@10=0.8160 MR=52.7 | [avg] MRR=0.5843 Hit@1=0.4639 Hit@5=0.7344 Hit@10=0.8229 MR=56.4
+04:48:52 | INFO    |            -> new best MRR=0.5843 (saved model_best.pt)
+04:48:54 | INFO    | epoch 1625/3000 | loss=0.0803
+04:48:54 | INFO    |            [l2r] MRR=0.5870 Hit@1=0.4660 Hit@5=0.7387 Hit@10=0.8294 MR=60.1 | [r2l] MRR=0.5812 Hit@1=0.4610 Hit@5=0.7304 Hit@10=0.8156 MR=52.8 | [avg] MRR=0.5841 Hit@1=0.4635 Hit@5=0.7345 Hit@10=0.8225 MR=56.5
+04:48:56 | INFO    | epoch 1650/3000 | loss=2.2120
+04:48:56 | INFO    |            [l2r] MRR=0.5874 Hit@1=0.4668 Hit@5=0.7378 Hit@10=0.8292 MR=60.1 | [r2l] MRR=0.5812 Hit@1=0.4608 Hit@5=0.7309 Hit@10=0.8153 MR=52.8 | [avg] MRR=0.5843 Hit@1=0.4638 Hit@5=0.7343 Hit@10=0.8223 MR=56.4
+04:48:56 | INFO    |            -> new best MRR=0.5843 (saved model_best.pt)
+04:48:58 | INFO    | epoch 1675/3000 | loss=0.0820
+04:48:58 | INFO    |            [l2r] MRR=0.5877 Hit@1=0.4676 Hit@5=0.7378 Hit@10=0.8291 MR=60.1 | [r2l] MRR=0.5813 Hit@1=0.4609 Hit@5=0.7311 Hit@10=0.8150 MR=52.8 | [avg] MRR=0.5845 Hit@1=0.4642 Hit@5=0.7345 Hit@10=0.8220 MR=56.5
+04:48:58 | INFO    |            -> new best MRR=0.5845 (saved model_best.pt)
+04:49:00 | INFO    | epoch 1700/3000 | loss=2.1782
+04:49:00 | INFO    |            [l2r] MRR=0.5875 Hit@1=0.4672 Hit@5=0.7378 Hit@10=0.8288 MR=60.2 | [r2l] MRR=0.5815 Hit@1=0.4613 Hit@5=0.7312 Hit@10=0.8153 MR=52.7 | [avg] MRR=0.5845 Hit@1=0.4643 Hit@5=0.7345 Hit@10=0.8220 MR=56.5
+04:49:02 | INFO    | epoch 1725/3000 | loss=0.0867
+04:49:02 | INFO    |            [l2r] MRR=0.5874 Hit@1=0.4669 Hit@5=0.7377 Hit@10=0.8284 MR=60.3 | [r2l] MRR=0.5818 Hit@1=0.4617 Hit@5=0.7317 Hit@10=0.8154 MR=52.8 | [avg] MRR=0.5846 Hit@1=0.4643 Hit@5=0.7347 Hit@10=0.8219 MR=56.6
+04:49:02 | INFO    |            -> new best MRR=0.5846 (saved model_best.pt)
+04:49:04 | INFO    | epoch 1750/3000 | loss=2.1432
+04:49:04 | INFO    |            [l2r] MRR=0.5877 Hit@1=0.4672 Hit@5=0.7383 Hit@10=0.8281 MR=60.4 | [r2l] MRR=0.5824 Hit@1=0.4629 Hit@5=0.7326 Hit@10=0.8151 MR=52.9 | [avg] MRR=0.5850 Hit@1=0.4650 Hit@5=0.7354 Hit@10=0.8216 MR=56.6
+04:49:04 | INFO    |            -> new best MRR=0.5850 (saved model_best.pt)
+04:49:06 | INFO    | epoch 1775/3000 | loss=0.0879
+04:49:06 | INFO    |            [l2r] MRR=0.5875 Hit@1=0.4670 Hit@5=0.7377 Hit@10=0.8279 MR=60.5 | [r2l] MRR=0.5825 Hit@1=0.4630 Hit@5=0.7328 Hit@10=0.8157 MR=53.0 | [avg] MRR=0.5850 Hit@1=0.4650 Hit@5=0.7352 Hit@10=0.8218 MR=56.7
+04:49:07 | INFO    | epoch 1800/3000 | loss=2.1076
+04:49:08 | INFO    |            [l2r] MRR=0.5868 Hit@1=0.4661 Hit@5=0.7373 Hit@10=0.8273 MR=60.5 | [r2l] MRR=0.5826 Hit@1=0.4635 Hit@5=0.7319 Hit@10=0.8159 MR=52.9 | [avg] MRR=0.5847 Hit@1=0.4648 Hit@5=0.7346 Hit@10=0.8216 MR=56.7
+04:49:09 | INFO    | epoch 1825/3000 | loss=0.0905
+04:49:09 | INFO    |            [l2r] MRR=0.5869 Hit@1=0.4660 Hit@5=0.7371 Hit@10=0.8273 MR=60.6 | [r2l] MRR=0.5824 Hit@1=0.4631 Hit@5=0.7318 Hit@10=0.8160 MR=53.0 | [avg] MRR=0.5847 Hit@1=0.4646 Hit@5=0.7345 Hit@10=0.8217 MR=56.8
+04:49:11 | INFO    | epoch 1850/3000 | loss=2.0705
+04:49:11 | INFO    |            [l2r] MRR=0.5872 Hit@1=0.4665 Hit@5=0.7368 Hit@10=0.8266 MR=60.6 | [r2l] MRR=0.5822 Hit@1=0.4630 Hit@5=0.7316 Hit@10=0.8162 MR=53.0 | [avg] MRR=0.5847 Hit@1=0.4647 Hit@5=0.7342 Hit@10=0.8214 MR=56.8
+04:49:13 | INFO    | epoch 1875/3000 | loss=0.0930
+04:49:13 | INFO    |            [l2r] MRR=0.5872 Hit@1=0.4667 Hit@5=0.7357 Hit@10=0.8262 MR=60.7 | [r2l] MRR=0.5825 Hit@1=0.4633 Hit@5=0.7316 Hit@10=0.8163 MR=53.1 | [avg] MRR=0.5849 Hit@1=0.4650 Hit@5=0.7337 Hit@10=0.8212 MR=56.9
+04:49:16 | INFO    | epoch 1900/3000 | loss=2.0329
+04:49:16 | INFO    |            [l2r] MRR=0.5870 Hit@1=0.4662 Hit@5=0.7345 Hit@10=0.8261 MR=60.8 | [r2l] MRR=0.5826 Hit@1=0.4637 Hit@5=0.7307 Hit@10=0.8160 MR=53.1 | [avg] MRR=0.5848 Hit@1=0.4650 Hit@5=0.7326 Hit@10=0.8210 MR=57.0
+04:49:18 | INFO    | epoch 1925/3000 | loss=0.0961
+04:49:18 | INFO    |            [l2r] MRR=0.5869 Hit@1=0.4658 Hit@5=0.7347 Hit@10=0.8259 MR=61.0 | [r2l] MRR=0.5827 Hit@1=0.4638 Hit@5=0.7309 Hit@10=0.8158 MR=53.3 | [avg] MRR=0.5848 Hit@1=0.4648 Hit@5=0.7328 Hit@10=0.8209 MR=57.1
+04:49:19 | INFO    | epoch 1950/3000 | loss=1.9937
+04:49:19 | INFO    |            [l2r] MRR=0.5875 Hit@1=0.4668 Hit@5=0.7344 Hit@10=0.8258 MR=61.1 | [r2l] MRR=0.5828 Hit@1=0.4642 Hit@5=0.7303 Hit@10=0.8159 MR=53.3 | [avg] MRR=0.5851 Hit@1=0.4655 Hit@5=0.7323 Hit@10=0.8209 MR=57.2
+04:49:20 | INFO    |            -> new best MRR=0.5851 (saved model_best.pt)
+04:49:21 | INFO    | epoch 1975/3000 | loss=0.0998
+04:49:21 | INFO    |            [l2r] MRR=0.5872 Hit@1=0.4663 Hit@5=0.7353 Hit@10=0.8253 MR=61.2 | [r2l] MRR=0.5825 Hit@1=0.4639 Hit@5=0.7299 Hit@10=0.8159 MR=53.4 | [avg] MRR=0.5849 Hit@1=0.4651 Hit@5=0.7326 Hit@10=0.8206 MR=57.3
+04:49:23 | INFO    | epoch 2000/3000 | loss=1.9540
+04:49:23 | INFO    |            [l2r] MRR=0.5864 Hit@1=0.4652 Hit@5=0.7346 Hit@10=0.8244 MR=61.3 | [r2l] MRR=0.5830 Hit@1=0.4643 Hit@5=0.7299 Hit@10=0.8155 MR=53.4 | [avg] MRR=0.5847 Hit@1=0.4648 Hit@5=0.7322 Hit@10=0.8200 MR=57.3
+04:49:25 | INFO    | epoch 2025/3000 | loss=0.1025
+04:49:25 | INFO    |            [l2r] MRR=0.5861 Hit@1=0.4651 Hit@5=0.7338 Hit@10=0.8246 MR=61.5 | [r2l] MRR=0.5825 Hit@1=0.4635 Hit@5=0.7308 Hit@10=0.8163 MR=53.5 | [avg] MRR=0.5843 Hit@1=0.4643 Hit@5=0.7323 Hit@10=0.8204 MR=57.5
+04:49:27 | INFO    | epoch 2050/3000 | loss=1.9126
+04:49:27 | INFO    |            [l2r] MRR=0.5862 Hit@1=0.4652 Hit@5=0.7347 Hit@10=0.8248 MR=61.6 | [r2l] MRR=0.5822 Hit@1=0.4633 Hit@5=0.7296 Hit@10=0.8160 MR=53.6 | [avg] MRR=0.5842 Hit@1=0.4643 Hit@5=0.7321 Hit@10=0.8204 MR=57.6
+04:49:29 | INFO    | epoch 2075/3000 | loss=0.1062
+04:49:29 | INFO    |            [l2r] MRR=0.5858 Hit@1=0.4646 Hit@5=0.7339 Hit@10=0.8247 MR=61.7 | [r2l] MRR=0.5826 Hit@1=0.4642 Hit@5=0.7298 Hit@10=0.8159 MR=53.6 | [avg] MRR=0.5842 Hit@1=0.4644 Hit@5=0.7319 Hit@10=0.8203 MR=57.7
+04:49:31 | INFO    | epoch 2100/3000 | loss=1.8707
+04:49:31 | INFO    |            [l2r] MRR=0.5857 Hit@1=0.4650 Hit@5=0.7332 Hit@10=0.8230 MR=61.9 | [r2l] MRR=0.5830 Hit@1=0.4644 Hit@5=0.7298 Hit@10=0.8157 MR=53.6 | [avg] MRR=0.5844 Hit@1=0.4647 Hit@5=0.7315 Hit@10=0.8194 MR=57.8
+04:49:33 | INFO    | epoch 2125/3000 | loss=0.1089
+04:49:33 | INFO    |            [l2r] MRR=0.5852 Hit@1=0.4646 Hit@5=0.7324 Hit@10=0.8230 MR=62.1 | [r2l] MRR=0.5832 Hit@1=0.4650 Hit@5=0.7301 Hit@10=0.8160 MR=53.7 | [avg] MRR=0.5842 Hit@1=0.4648 Hit@5=0.7312 Hit@10=0.8195 MR=57.9
+04:49:35 | INFO    | epoch 2150/3000 | loss=1.8270
+04:49:35 | INFO    |            [l2r] MRR=0.5852 Hit@1=0.4649 Hit@5=0.7319 Hit@10=0.8221 MR=62.2 | [r2l] MRR=0.5829 Hit@1=0.4647 Hit@5=0.7290 Hit@10=0.8159 MR=53.7 | [avg] MRR=0.5841 Hit@1=0.4648 Hit@5=0.7304 Hit@10=0.8190 MR=58.0
+04:49:37 | INFO    | epoch 2175/3000 | loss=0.1124
+04:49:37 | INFO    |            [l2r] MRR=0.5847 Hit@1=0.4644 Hit@5=0.7312 Hit@10=0.8219 MR=62.4 | [r2l] MRR=0.5829 Hit@1=0.4650 Hit@5=0.7294 Hit@10=0.8155 MR=53.8 | [avg] MRR=0.5838 Hit@1=0.4647 Hit@5=0.7303 Hit@10=0.8187 MR=58.1
+04:49:39 | INFO    | epoch 2200/3000 | loss=1.7827
+04:49:39 | INFO    |            [l2r] MRR=0.5834 Hit@1=0.4627 Hit@5=0.7310 Hit@10=0.8202 MR=62.7 | [r2l] MRR=0.5829 Hit@1=0.4650 Hit@5=0.7294 Hit@10=0.8163 MR=53.8 | [avg] MRR=0.5832 Hit@1=0.4638 Hit@5=0.7302 Hit@10=0.8182 MR=58.3
+04:49:41 | INFO    | epoch 2225/3000 | loss=0.1173
+04:49:41 | INFO    |            [l2r] MRR=0.5837 Hit@1=0.4631 Hit@5=0.7309 Hit@10=0.8197 MR=62.9 | [r2l] MRR=0.5824 Hit@1=0.4639 Hit@5=0.7292 Hit@10=0.8157 MR=53.9 | [avg] MRR=0.5830 Hit@1=0.4635 Hit@5=0.7300 Hit@10=0.8177 MR=58.4
+04:49:43 | INFO    | epoch 2250/3000 | loss=1.7365
+04:49:43 | INFO    |            [l2r] MRR=0.5825 Hit@1=0.4615 Hit@5=0.7309 Hit@10=0.8191 MR=63.1 | [r2l] MRR=0.5814 Hit@1=0.4626 Hit@5=0.7277 Hit@10=0.8151 MR=54.0 | [avg] MRR=0.5820 Hit@1=0.4620 Hit@5=0.7293 Hit@10=0.8171 MR=58.5
+04:49:43 | INFO    |            early stop: no MRR improvement for 12 evals (best=0.5851 @ 1950).
+04:49:44 | INFO    | Done in 2.9 min. Best MRR=0.5851 @ epoch 1950.
+04:49:44 | INFO    | Finished. Best MRR=0.5851 @ epoch 1950.

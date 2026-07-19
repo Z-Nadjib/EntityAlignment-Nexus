@@ -1,0 +1,52 @@
+experiment:
+  name: mraea_zh_en_0_3
+  model: mraea
+  seed: 2024
+  device: cuda
+data:
+  root: Data/dbp15k
+  lang: zh_en
+  fold: '0_3'
+  use_mtranse_format: true
+model:
+  node_hidden: 100
+  rel_hidden: 100
+  depth: 2
+  attn_heads: 2
+  dropout: 0.3
+train:
+  epochs: 5000
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 0.0
+  gamma: 3.0
+  iterative: true
+  iter_start: 1000
+  iter_every: 300
+  iter_threshold: 0.0
+eval:
+  every: 200
+  hits_at:
+  - 1
+  - 5
+  - 10
+  metric: cosine
+  eval_chunk: 1024
+  direction: both
+logging:
+  output_dir: experiments
+  log_file: training.txt
+  config_dump: config_used.yaml
+  save_best: true
+  save_last: true
+  checkpoint_name: model.pt
+  embeddings_name: embeddings.pt
+  metrics_csv: metrics.csv
+  loss_csv: loss.csv
+  plots:
+    loss_curve: loss_curve.png
+    metrics_curve: metrics_curve.png
+  log_level: INFO
+_project_root: /home/nzahaf/EntityAlignment-Nexus
+_config_path: /home/nzahaf/EntityAlignment-Nexus/configs/mraea_dbp15k.yaml
+_run_dir: /home/nzahaf/EntityAlignment-Nexus/experiments/mraea_zh_en_0_3_20260718-044957

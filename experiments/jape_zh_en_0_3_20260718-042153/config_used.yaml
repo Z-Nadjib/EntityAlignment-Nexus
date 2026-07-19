@@ -1,0 +1,52 @@
+experiment:
+  name: jape_zh_en_0_3
+  model: jape
+  seed: 2024
+  device: cuda
+data:
+  root: Data/dbp15k
+  lang: zh_en
+  fold: '0_3'
+  use_mtranse_format: false
+model:
+  embed_dim: 75
+  init: xavier
+  normalize_embeddings: true
+train:
+  epochs: 500
+  batch_size: 4096
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 0.0
+  early_stop_patience: 15
+  margin: 1.0
+  neg_samples: 25
+  use_attributes: true
+  beta: 0.9
+eval:
+  every: 25
+  hits_at:
+  - 1
+  - 5
+  - 10
+  metric: cosine
+  csls_k: 5
+  eval_chunk: 1024
+  direction: both
+logging:
+  output_dir: experiments
+  log_file: training.txt
+  config_dump: config_used.yaml
+  save_best: true
+  save_last: true
+  checkpoint_name: model.pt
+  embeddings_name: embeddings.pt
+  metrics_csv: metrics.csv
+  loss_csv: loss.csv
+  plots:
+    loss_curve: loss_curve.png
+    metrics_curve: metrics_curve.png
+  log_level: INFO
+_project_root: /home/nzahaf/EntityAlignment-Nexus
+_config_path: /home/nzahaf/EntityAlignment-Nexus/configs/jape_dbp15k.yaml
+_run_dir: /home/nzahaf/EntityAlignment-Nexus/experiments/jape_zh_en_0_3_20260718-042153

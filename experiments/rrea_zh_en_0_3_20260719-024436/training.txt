@@ -1,0 +1,20 @@
+02:44:36 | INFO    | Model: rrea | Device: cuda
+02:44:36 | INFO    | Data: {'lang': 'zh_en', 'fold': '0_3', 'num_entities': 38960, 'num_relations': 3024, '|KG1 ents|': 19388, '|KG2 ents|': 19572, '|KG1 triples|': 70414, '|KG2 triples|': 95142, 'train_pairs': 4500, 'test_pairs': 10500}
+02:44:47 | INFO    | Params: 4.50M
+02:44:47 | INFO    | Run directory: /home/nzahaf/EntityAlignment-Nexus/experiments/rrea_zh_en_0_3_20260719-024436
+02:44:47 | INFO    | Device: cuda:0 | entities=38960 rels(x2)=6048 edges=259545 train=4500 test=10500 | turns=1 x 1200
+02:44:47 | INFO    | === turn 1/1 (train pairs=4500) ===
+02:45:10 | INFO    | epoch  300/1200 | loss=0.0023
+02:45:10 | INFO    |            [l2r] MRR=0.7780 Hit@1=0.6895 Hit@5=0.8903 Hit@10=0.9312 MR=11.4 | [r2l] MRR=0.7756 Hit@1=0.6876 Hit@5=0.8846 Hit@10=0.9288 MR=10.1 | [avg] MRR=0.7768 Hit@1=0.6886 Hit@5=0.8874 Hit@10=0.9300 MR=10.7
+02:45:11 | INFO    |            -> new best MRR=0.7773 (saved model_best.pt)
+02:45:32 | INFO    | epoch  600/1200 | loss=0.0026
+02:45:32 | INFO    |            [l2r] MRR=0.7922 Hit@1=0.7106 Hit@5=0.8962 Hit@10=0.9345 MR=13.7 | [r2l] MRR=0.7850 Hit@1=0.7004 Hit@5=0.8930 Hit@10=0.9306 MR=13.4 | [avg] MRR=0.7886 Hit@1=0.7055 Hit@5=0.8946 Hit@10=0.9325 MR=13.5
+02:45:33 | INFO    |            -> new best MRR=0.7886 (saved model_best.pt)
+02:45:53 | INFO    | epoch  900/1200 | loss=0.0007
+02:45:53 | INFO    |            [l2r] MRR=0.7934 Hit@1=0.7130 Hit@5=0.8963 Hit@10=0.9344 MR=14.3 | [r2l] MRR=0.7882 Hit@1=0.7050 Hit@5=0.8924 Hit@10=0.9326 MR=13.3 | [avg] MRR=0.7908 Hit@1=0.7090 Hit@5=0.8943 Hit@10=0.9335 MR=13.8
+02:45:54 | INFO    |            -> new best MRR=0.7913 (saved model_best.pt)
+02:46:14 | INFO    | epoch 1200/1200 | loss=0.0028
+02:46:14 | INFO    |            [l2r] MRR=0.7977 Hit@1=0.7197 Hit@5=0.8961 Hit@10=0.9327 MR=15.4 | [r2l] MRR=0.7936 Hit@1=0.7138 Hit@5=0.8939 Hit@10=0.9316 MR=14.3 | [avg] MRR=0.7956 Hit@1=0.7168 Hit@5=0.8950 Hit@10=0.9321 MR=14.9
+02:46:15 | INFO    |            -> new best MRR=0.7956 (saved model_best.pt)
+02:46:17 | INFO    | Done in 1.5 min. Best MRR=0.7947 @ epoch 1200.
+02:46:17 | INFO    | Finished. Best MRR=0.7947 @ epoch 1200.

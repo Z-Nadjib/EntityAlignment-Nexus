@@ -1,0 +1,93 @@
+04:49:57 | INFO    | Model: mraea | Device: cuda
+04:49:58 | INFO    | Data: {'lang': 'zh_en', 'fold': '0_3', 'num_entities': 38960, 'num_relations': 3024, '|KG1 ents|': 19388, '|KG2 ents|': 19572, '|KG1 triples|': 70414, '|KG2 triples|': 95142, 'train_pairs': 4500, 'test_pairs': 10500}
+04:50:03 | INFO    | Params: 4.50M
+04:50:03 | INFO    | Run directory: /home/nzahaf/EntityAlignment-Nexus/experiments/mraea_zh_en_0_3_20260718-044957
+04:50:03 | INFO    | Device: cuda:0 | entities=38960 rels(x2)=6048 edges=259545 train=4500 test=10500 iterative=True
+04:50:56 | INFO    | epoch  200/5000 | loss=0.0275
+04:50:56 | INFO    |            [l2r] MRR=0.6308 Hit@1=0.5230 Hit@5=0.7643 Hit@10=0.8344 MR=19.9 | [r2l] MRR=0.5939 Hit@1=0.4854 Hit@5=0.7201 Hit@10=0.8060 MR=26.8 | [avg] MRR=0.6123 Hit@1=0.5042 Hit@5=0.7422 Hit@10=0.8202 MR=23.4
+04:50:56 | INFO    |            -> new best MRR=0.6123 (saved model_best.pt)
+04:51:49 | INFO    | epoch  400/5000 | loss=0.0130
+04:51:49 | INFO    |            [l2r] MRR=0.6599 Hit@1=0.5519 Hit@5=0.7912 Hit@10=0.8617 MR=18.0 | [r2l] MRR=0.6298 Hit@1=0.5243 Hit@5=0.7565 Hit@10=0.8354 MR=24.7 | [avg] MRR=0.6449 Hit@1=0.5381 Hit@5=0.7739 Hit@10=0.8486 MR=21.4
+04:51:49 | INFO    |            -> new best MRR=0.6449 (saved model_best.pt)
+04:52:41 | INFO    | epoch  600/5000 | loss=0.0075
+04:52:41 | INFO    |            [l2r] MRR=0.6759 Hit@1=0.5694 Hit@5=0.8067 Hit@10=0.8738 MR=18.5 | [r2l] MRR=0.6483 Hit@1=0.5423 Hit@5=0.7789 Hit@10=0.8519 MR=24.7 | [avg] MRR=0.6621 Hit@1=0.5559 Hit@5=0.7928 Hit@10=0.8629 MR=21.6
+04:52:42 | INFO    |            -> new best MRR=0.6621 (saved model_best.pt)
+04:53:33 | INFO    | epoch  800/5000 | loss=0.0060
+04:53:33 | INFO    |            [l2r] MRR=0.6893 Hit@1=0.5861 Hit@5=0.8180 Hit@10=0.8827 MR=19.4 | [r2l] MRR=0.6624 Hit@1=0.5576 Hit@5=0.7922 Hit@10=0.8618 MR=25.5 | [avg] MRR=0.6758 Hit@1=0.5719 Hit@5=0.8051 Hit@10=0.8722 MR=22.5
+04:53:34 | INFO    |            -> new best MRR=0.6758 (saved model_best.pt)
+04:54:25 | INFO    | epoch 1000/5000 | loss=0.0050
+04:54:25 | INFO    |            [l2r] MRR=0.6986 Hit@1=0.5960 Hit@5=0.8275 Hit@10=0.8871 MR=20.5 | [r2l] MRR=0.6750 Hit@1=0.5723 Hit@5=0.8035 Hit@10=0.8695 MR=26.4 | [avg] MRR=0.6868 Hit@1=0.5841 Hit@5=0.8155 Hit@10=0.8783 MR=23.5
+04:54:26 | INFO    |            -> new best MRR=0.6868 (saved model_best.pt)
+04:55:17 | INFO    | epoch 1200/5000 | loss=0.0032
+04:55:17 | INFO    |            [l2r] MRR=0.7063 Hit@1=0.6049 Hit@5=0.8335 Hit@10=0.8920 MR=21.6 | [r2l] MRR=0.6830 Hit@1=0.5801 Hit@5=0.8128 Hit@10=0.8756 MR=27.5 | [avg] MRR=0.6946 Hit@1=0.5925 Hit@5=0.8231 Hit@10=0.8838 MR=24.5
+04:55:18 | INFO    |            -> new best MRR=0.6946 (saved model_best.pt)
+04:55:18 | INFO    |            [iter] added 7437 mutual-NN seeds (total extra 7437)
+04:56:10 | INFO    | epoch 1400/5000 | loss=0.0049
+04:56:10 | INFO    |            [l2r] MRR=0.7362 Hit@1=0.6420 Hit@5=0.8542 Hit@10=0.9081 MR=18.0 | [r2l] MRR=0.7196 Hit@1=0.6253 Hit@5=0.8384 Hit@10=0.8907 MR=21.9 | [avg] MRR=0.7279 Hit@1=0.6337 Hit@5=0.8463 Hit@10=0.8994 MR=20.0
+04:56:10 | INFO    |            -> new best MRR=0.7279 (saved model_best.pt)
+04:56:36 | INFO    |            [iter] added 2873 mutual-NN seeds (total extra 10310)
+04:57:02 | INFO    | epoch 1600/5000 | loss=0.0055
+04:57:02 | INFO    |            [l2r] MRR=0.7591 Hit@1=0.6741 Hit@5=0.8651 Hit@10=0.9138 MR=18.0 | [r2l] MRR=0.7480 Hit@1=0.6641 Hit@5=0.8522 Hit@10=0.9005 MR=20.7 | [avg] MRR=0.7536 Hit@1=0.6691 Hit@5=0.8587 Hit@10=0.9071 MR=19.3
+04:57:02 | INFO    |            -> new best MRR=0.7536 (saved model_best.pt)
+04:57:54 | INFO    | epoch 1800/5000 | loss=0.0036
+04:57:54 | INFO    |            [l2r] MRR=0.7681 Hit@1=0.6872 Hit@5=0.8690 Hit@10=0.9158 MR=18.1 | [r2l] MRR=0.7573 Hit@1=0.6776 Hit@5=0.8562 Hit@10=0.9046 MR=20.9 | [avg] MRR=0.7627 Hit@1=0.6824 Hit@5=0.8626 Hit@10=0.9102 MR=19.5
+04:57:54 | INFO    |            -> new best MRR=0.7627 (saved model_best.pt)
+04:57:54 | INFO    |            [iter] added 1377 mutual-NN seeds (total extra 11687)
+04:58:45 | INFO    | epoch 2000/5000 | loss=0.0035
+04:58:45 | INFO    |            [l2r] MRR=0.7818 Hit@1=0.7061 Hit@5=0.8750 Hit@10=0.9196 MR=19.3 | [r2l] MRR=0.7739 Hit@1=0.6989 Hit@5=0.8666 Hit@10=0.9121 MR=20.8 | [avg] MRR=0.7778 Hit@1=0.7025 Hit@5=0.8708 Hit@10=0.9159 MR=20.1
+04:58:46 | INFO    |            -> new best MRR=0.7778 (saved model_best.pt)
+04:59:12 | INFO    |            [iter] added 827 mutual-NN seeds (total extra 12514)
+04:59:37 | INFO    | epoch 2200/5000 | loss=0.0030
+04:59:37 | INFO    |            [l2r] MRR=0.7914 Hit@1=0.7162 Hit@5=0.8826 Hit@10=0.9216 MR=19.2 | [r2l] MRR=0.7818 Hit@1=0.7059 Hit@5=0.8749 Hit@10=0.9164 MR=20.4 | [avg] MRR=0.7866 Hit@1=0.7110 Hit@5=0.8787 Hit@10=0.9190 MR=19.8
+04:59:38 | INFO    |            -> new best MRR=0.7866 (saved model_best.pt)
+05:00:29 | INFO    | epoch 2400/5000 | loss=0.0031
+05:00:29 | INFO    |            [l2r] MRR=0.7965 Hit@1=0.7234 Hit@5=0.8859 Hit@10=0.9229 MR=19.8 | [r2l] MRR=0.7882 Hit@1=0.7147 Hit@5=0.8784 Hit@10=0.9165 MR=20.9 | [avg] MRR=0.7923 Hit@1=0.7190 Hit@5=0.8821 Hit@10=0.9197 MR=20.3
+05:00:29 | INFO    |            -> new best MRR=0.7923 (saved model_best.pt)
+05:00:29 | INFO    |            [iter] added 529 mutual-NN seeds (total extra 13043)
+05:01:21 | INFO    | epoch 2600/5000 | loss=0.0033
+05:01:21 | INFO    |            [l2r] MRR=0.8006 Hit@1=0.7283 Hit@5=0.8892 Hit@10=0.9244 MR=19.6 | [r2l] MRR=0.7936 Hit@1=0.7208 Hit@5=0.8845 Hit@10=0.9221 MR=20.9 | [avg] MRR=0.7971 Hit@1=0.7245 Hit@5=0.8869 Hit@10=0.9232 MR=20.3
+05:01:21 | INFO    |            -> new best MRR=0.7971 (saved model_best.pt)
+05:01:47 | INFO    |            [iter] added 371 mutual-NN seeds (total extra 13414)
+05:02:12 | INFO    | epoch 2800/5000 | loss=0.0032
+05:02:12 | INFO    |            [l2r] MRR=0.8043 Hit@1=0.7323 Hit@5=0.8934 Hit@10=0.9270 MR=20.6 | [r2l] MRR=0.7974 Hit@1=0.7239 Hit@5=0.8893 Hit@10=0.9250 MR=22.2 | [avg] MRR=0.8008 Hit@1=0.7281 Hit@5=0.8914 Hit@10=0.9260 MR=21.4
+05:02:13 | INFO    |            -> new best MRR=0.8008 (saved model_best.pt)
+05:03:04 | INFO    | epoch 3000/5000 | loss=0.0025
+05:03:04 | INFO    |            [l2r] MRR=0.8070 Hit@1=0.7362 Hit@5=0.8939 Hit@10=0.9273 MR=20.9 | [r2l] MRR=0.8006 Hit@1=0.7289 Hit@5=0.8910 Hit@10=0.9259 MR=23.1 | [avg] MRR=0.8038 Hit@1=0.7325 Hit@5=0.8925 Hit@10=0.9266 MR=22.0
+05:03:05 | INFO    |            -> new best MRR=0.8038 (saved model_best.pt)
+05:03:05 | INFO    |            [iter] added 281 mutual-NN seeds (total extra 13695)
+05:03:56 | INFO    | epoch 3200/5000 | loss=0.0030
+05:03:56 | INFO    |            [l2r] MRR=0.8081 Hit@1=0.7371 Hit@5=0.8966 Hit@10=0.9271 MR=22.3 | [r2l] MRR=0.8045 Hit@1=0.7339 Hit@5=0.8925 Hit@10=0.9266 MR=25.4 | [avg] MRR=0.8063 Hit@1=0.7355 Hit@5=0.8945 Hit@10=0.9269 MR=23.9
+05:03:57 | INFO    |            -> new best MRR=0.8063 (saved model_best.pt)
+05:04:22 | INFO    |            [iter] added 201 mutual-NN seeds (total extra 13896)
+05:04:48 | INFO    | epoch 3400/5000 | loss=0.0036
+05:04:48 | INFO    |            [l2r] MRR=0.8100 Hit@1=0.7399 Hit@5=0.8983 Hit@10=0.9287 MR=22.7 | [r2l] MRR=0.8045 Hit@1=0.7327 Hit@5=0.8945 Hit@10=0.9269 MR=26.8 | [avg] MRR=0.8072 Hit@1=0.7363 Hit@5=0.8964 Hit@10=0.9278 MR=24.7
+05:04:48 | INFO    |            -> new best MRR=0.8072 (saved model_best.pt)
+05:05:40 | INFO    | epoch 3600/5000 | loss=0.0021
+05:05:40 | INFO    |            [l2r] MRR=0.8111 Hit@1=0.7407 Hit@5=0.8986 Hit@10=0.9286 MR=24.1 | [r2l] MRR=0.8065 Hit@1=0.7360 Hit@5=0.8949 Hit@10=0.9263 MR=27.3 | [avg] MRR=0.8088 Hit@1=0.7383 Hit@5=0.8967 Hit@10=0.9274 MR=25.7
+05:05:40 | INFO    |            -> new best MRR=0.8088 (saved model_best.pt)
+05:05:40 | INFO    |            [iter] added 161 mutual-NN seeds (total extra 14057)
+05:06:31 | INFO    | epoch 3800/5000 | loss=0.0033
+05:06:31 | INFO    |            [l2r] MRR=0.8116 Hit@1=0.7423 Hit@5=0.8985 Hit@10=0.9287 MR=24.6 | [r2l] MRR=0.8057 Hit@1=0.7346 Hit@5=0.8954 Hit@10=0.9267 MR=27.9 | [avg] MRR=0.8087 Hit@1=0.7384 Hit@5=0.8970 Hit@10=0.9277 MR=26.2
+05:06:57 | INFO    |            [iter] added 141 mutual-NN seeds (total extra 14198)
+05:07:23 | INFO    | epoch 4000/5000 | loss=0.0025
+05:07:23 | INFO    |            [l2r] MRR=0.8113 Hit@1=0.7414 Hit@5=0.8972 Hit@10=0.9291 MR=25.5 | [r2l] MRR=0.8070 Hit@1=0.7372 Hit@5=0.8950 Hit@10=0.9273 MR=30.9 | [avg] MRR=0.8092 Hit@1=0.7393 Hit@5=0.8961 Hit@10=0.9282 MR=28.2
+05:07:23 | INFO    |            -> new best MRR=0.8092 (saved model_best.pt)
+05:08:15 | INFO    | epoch 4200/5000 | loss=0.0034
+05:08:15 | INFO    |            [l2r] MRR=0.8124 Hit@1=0.7431 Hit@5=0.8979 Hit@10=0.9305 MR=26.3 | [r2l] MRR=0.8084 Hit@1=0.7387 Hit@5=0.8959 Hit@10=0.9268 MR=31.2 | [avg] MRR=0.8104 Hit@1=0.7409 Hit@5=0.8969 Hit@10=0.9286 MR=28.7
+05:08:15 | INFO    |            -> new best MRR=0.8104 (saved model_best.pt)
+05:08:15 | INFO    |            [iter] added 102 mutual-NN seeds (total extra 14300)
+05:09:07 | INFO    | epoch 4400/5000 | loss=0.0026
+05:09:07 | INFO    |            [l2r] MRR=0.8127 Hit@1=0.7442 Hit@5=0.8983 Hit@10=0.9299 MR=28.6 | [r2l] MRR=0.8089 Hit@1=0.7396 Hit@5=0.8959 Hit@10=0.9274 MR=34.8 | [avg] MRR=0.8108 Hit@1=0.7419 Hit@5=0.8971 Hit@10=0.9287 MR=31.7
+05:09:07 | INFO    |            -> new best MRR=0.8108 (saved model_best.pt)
+05:09:33 | INFO    |            [iter] added 94 mutual-NN seeds (total extra 14394)
+05:09:58 | INFO    | epoch 4600/5000 | loss=0.0019
+05:09:58 | INFO    |            [l2r] MRR=0.8132 Hit@1=0.7449 Hit@5=0.8982 Hit@10=0.9293 MR=29.5 | [r2l] MRR=0.8089 Hit@1=0.7399 Hit@5=0.8948 Hit@10=0.9264 MR=34.6 | [avg] MRR=0.8110 Hit@1=0.7424 Hit@5=0.8965 Hit@10=0.9279 MR=32.1
+05:09:59 | INFO    |            -> new best MRR=0.8110 (saved model_best.pt)
+05:10:50 | INFO    | epoch 4800/5000 | loss=0.0025
+05:10:50 | INFO    |            [l2r] MRR=0.8140 Hit@1=0.7457 Hit@5=0.8989 Hit@10=0.9294 MR=30.9 | [r2l] MRR=0.8095 Hit@1=0.7404 Hit@5=0.8950 Hit@10=0.9259 MR=36.0 | [avg] MRR=0.8118 Hit@1=0.7430 Hit@5=0.8970 Hit@10=0.9277 MR=33.5
+05:10:50 | INFO    |            -> new best MRR=0.8118 (saved model_best.pt)
+05:10:50 | INFO    |            [iter] added 76 mutual-NN seeds (total extra 14470)
+05:11:41 | INFO    | epoch 5000/5000 | loss=0.0017
+05:11:41 | INFO    |            [l2r] MRR=0.8135 Hit@1=0.7450 Hit@5=0.8976 Hit@10=0.9280 MR=31.2 | [r2l] MRR=0.8089 Hit@1=0.7390 Hit@5=0.8948 Hit@10=0.9265 MR=38.2 | [avg] MRR=0.8112 Hit@1=0.7420 Hit@5=0.8962 Hit@10=0.9272 MR=34.7
+05:11:43 | INFO    | Done in 21.7 min. Best MRR=0.8118 @ epoch 4800.
+05:11:43 | INFO    | Finished. Best MRR=0.8118 @ epoch 4800.

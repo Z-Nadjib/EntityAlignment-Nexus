@@ -1,0 +1,80 @@
+experiment:
+  name: bootea_zh_en_0_3
+  model: bootea
+  seed: 2024
+  device: cuda
+data:
+  root: Data/dbp15k
+  lang: zh_en
+  fold: '0_3'
+  use_mtranse_format: true
+model:
+  embed_dim: 300
+  init: xavier
+  normalize_embeddings: true
+train:
+  epochs: 500
+  batch_size: 4096
+  align_batch_size: 1024
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 0.0
+  lr_schedule: none
+  grad_clip: 0.0
+  early_stop_patience: 12
+  neg_samples: 10
+  pos_margin_kge: 0.01
+  neg_margin_kge: 2.0
+  neg_weight_kge: 0.2
+  swapping:
+    enabled: true
+    cap_per_role: 20
+    swap_pseudo: true
+  align_pos_margin: 0.2
+  align_neg_margin: 1.0
+  align_neg_weight: 1.0
+  align_loss_weight: 5.0
+  hard_negatives:
+    enabled: true
+    num_candidates: 50
+    refresh_every: 5
+    start_epoch: 10
+  eps_truncated:
+    enabled: true
+    num_candidates: 50
+    refresh_every: 5
+    start_epoch: 10
+  bootstrap:
+    enabled: true
+    start_epoch: 20
+    every: 5
+    threshold: 0.65
+    pseudo_weight: 1.0
+    max_add: 9000
+eval:
+  every: 10
+  hits_at:
+  - 1
+  - 5
+  - 10
+  metric: csls
+  csls_k: 3
+  eval_chunk: 1024
+  direction: both
+logging:
+  output_dir: experiments
+  log_file: training.txt
+  config_dump: config_used.yaml
+  save_best: true
+  save_last: true
+  checkpoint_name: model.pt
+  embeddings_name: embeddings.pt
+  metrics_csv: metrics.csv
+  loss_csv: loss.csv
+  plots:
+    loss_curve: loss_curve.png
+    metrics_curve: metrics_curve.png
+  log_level: INFO
+_project_root: /home/nzahaf/EntityAlignment-Nexus
+_config_path: /home/nzahaf/EntityAlignment-Nexus/configs/bootea_dbp15k.yaml
+_run_dir: /home/nzahaf/EntityAlignment-Nexus/experiments/bootea_zh_en_0_3_20260718-042649

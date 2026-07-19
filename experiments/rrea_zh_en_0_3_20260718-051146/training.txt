@@ -1,0 +1,76 @@
+05:11:47 | INFO    | Model: rrea | Device: cuda
+05:11:47 | INFO    | Data: {'lang': 'zh_en', 'fold': '0_3', 'num_entities': 38960, 'num_relations': 3024, '|KG1 ents|': 19388, '|KG2 ents|': 19572, '|KG1 triples|': 70414, '|KG2 triples|': 95142, 'train_pairs': 4500, 'test_pairs': 10500}
+05:11:52 | INFO    | Params: 4.50M
+05:11:52 | INFO    | Run directory: /home/nzahaf/EntityAlignment-Nexus/experiments/rrea_zh_en_0_3_20260718-051146
+05:11:52 | INFO    | Device: cuda:0 | entities=38960 rels(x2)=6048 edges=259545 train=4500 test=10500 | turns=5 x 1200
+05:11:52 | INFO    | === turn 1/5 (train pairs=4500) ===
+05:12:37 | INFO    | epoch  300/6000 | loss=0.0036
+05:12:37 | INFO    |            [l2r] MRR=0.7810 Hit@1=0.6954 Hit@5=0.8897 Hit@10=0.9307 MR=10.9 | [r2l] MRR=0.7739 Hit@1=0.6850 Hit@5=0.8875 Hit@10=0.9284 MR=11.1 | [avg] MRR=0.7775 Hit@1=0.6902 Hit@5=0.8886 Hit@10=0.9295 MR=11.0
+05:12:37 | INFO    |            -> new best MRR=0.7775 (saved model_best.pt)
+05:13:21 | INFO    | epoch  600/6000 | loss=0.0018
+05:13:21 | INFO    |            [l2r] MRR=0.7895 Hit@1=0.7076 Hit@5=0.8936 Hit@10=0.9346 MR=13.1 | [r2l] MRR=0.7853 Hit@1=0.7012 Hit@5=0.8928 Hit@10=0.9327 MR=12.0 | [avg] MRR=0.7874 Hit@1=0.7044 Hit@5=0.8932 Hit@10=0.9336 MR=12.5
+05:13:22 | INFO    |            -> new best MRR=0.7874 (saved model_best.pt)
+05:14:06 | INFO    | epoch  900/6000 | loss=0.0012
+05:14:06 | INFO    |            [l2r] MRR=0.7924 Hit@1=0.7118 Hit@5=0.8933 Hit@10=0.9328 MR=14.1 | [r2l] MRR=0.7874 Hit@1=0.7057 Hit@5=0.8903 Hit@10=0.9311 MR=13.8 | [avg] MRR=0.7899 Hit@1=0.7088 Hit@5=0.8918 Hit@10=0.9320 MR=14.0
+05:14:07 | INFO    |            -> new best MRR=0.7899 (saved model_best.pt)
+05:14:51 | INFO    | epoch 1200/6000 | loss=0.0006
+05:14:51 | INFO    |            [l2r] MRR=0.7949 Hit@1=0.7167 Hit@5=0.8934 Hit@10=0.9313 MR=15.8 | [r2l] MRR=0.7891 Hit@1=0.7067 Hit@5=0.8930 Hit@10=0.9321 MR=14.2 | [avg] MRR=0.7920 Hit@1=0.7117 Hit@5=0.8932 Hit@10=0.9317 MR=15.0
+05:14:51 | INFO    |            -> new best MRR=0.7920 (saved model_best.pt)
+05:14:51 | INFO    |            [semi] +7424 mutual-NN pairs (train=11924, pool=3076)
+05:14:51 | INFO    | === turn 2/5 (train pairs=11924) ===
+05:15:35 | INFO    | epoch 1500/6000 | loss=0.0019
+05:15:35 | INFO    |            [l2r] MRR=0.8178 Hit@1=0.7450 Hit@5=0.9090 Hit@10=0.9429 MR=12.0 | [r2l] MRR=0.8143 Hit@1=0.7410 Hit@5=0.9078 Hit@10=0.9408 MR=10.8 | [avg] MRR=0.8160 Hit@1=0.7430 Hit@5=0.9084 Hit@10=0.9418 MR=11.4
+05:15:36 | INFO    |            -> new best MRR=0.8160 (saved model_best.pt)
+05:16:20 | INFO    | epoch 1800/6000 | loss=0.0012
+05:16:20 | INFO    |            [l2r] MRR=0.8222 Hit@1=0.7510 Hit@5=0.9118 Hit@10=0.9448 MR=13.1 | [r2l] MRR=0.8186 Hit@1=0.7476 Hit@5=0.9074 Hit@10=0.9419 MR=11.4 | [avg] MRR=0.8204 Hit@1=0.7493 Hit@5=0.9096 Hit@10=0.9433 MR=12.3
+05:16:21 | INFO    |            -> new best MRR=0.8204 (saved model_best.pt)
+05:17:05 | INFO    | epoch 2100/6000 | loss=0.0006
+05:17:05 | INFO    |            [l2r] MRR=0.8227 Hit@1=0.7522 Hit@5=0.9118 Hit@10=0.9436 MR=12.8 | [r2l] MRR=0.8193 Hit@1=0.7489 Hit@5=0.9080 Hit@10=0.9418 MR=12.0 | [avg] MRR=0.8210 Hit@1=0.7505 Hit@5=0.9099 Hit@10=0.9427 MR=12.4
+05:17:05 | INFO    |            -> new best MRR=0.8210 (saved model_best.pt)
+05:17:49 | INFO    | epoch 2400/6000 | loss=0.0022
+05:17:49 | INFO    |            [l2r] MRR=0.8246 Hit@1=0.7545 Hit@5=0.9121 Hit@10=0.9430 MR=13.0 | [r2l] MRR=0.8226 Hit@1=0.7539 Hit@5=0.9098 Hit@10=0.9429 MR=12.3 | [avg] MRR=0.8236 Hit@1=0.7542 Hit@5=0.9110 Hit@10=0.9429 MR=12.7
+05:17:50 | INFO    |            -> new best MRR=0.8236 (saved model_best.pt)
+05:17:50 | INFO    |            [semi] +1706 mutual-NN pairs (train=13630, pool=1370)
+05:17:50 | INFO    | === turn 3/5 (train pairs=13630) ===
+05:18:34 | INFO    | epoch 2700/6000 | loss=0.0025
+05:18:34 | INFO    |            [l2r] MRR=0.8410 Hit@1=0.7798 Hit@5=0.9169 Hit@10=0.9462 MR=12.0 | [r2l] MRR=0.8369 Hit@1=0.7747 Hit@5=0.9144 Hit@10=0.9446 MR=10.6 | [avg] MRR=0.8390 Hit@1=0.7772 Hit@5=0.9156 Hit@10=0.9454 MR=11.3
+05:18:34 | INFO    |            -> new best MRR=0.8390 (saved model_best.pt)
+05:19:19 | INFO    | epoch 3000/6000 | loss=0.0022
+05:19:19 | INFO    |            [l2r] MRR=0.8414 Hit@1=0.7807 Hit@5=0.9163 Hit@10=0.9455 MR=13.8 | [r2l] MRR=0.8400 Hit@1=0.7810 Hit@5=0.9145 Hit@10=0.9433 MR=11.3 | [avg] MRR=0.8407 Hit@1=0.7809 Hit@5=0.9154 Hit@10=0.9444 MR=12.6
+05:19:19 | INFO    |            -> new best MRR=0.8407 (saved model_best.pt)
+05:20:03 | INFO    | epoch 3300/6000 | loss=0.0013
+05:20:03 | INFO    |            [l2r] MRR=0.8431 Hit@1=0.7825 Hit@5=0.9184 Hit@10=0.9470 MR=13.2 | [r2l] MRR=0.8416 Hit@1=0.7821 Hit@5=0.9166 Hit@10=0.9440 MR=11.8 | [avg] MRR=0.8424 Hit@1=0.7823 Hit@5=0.9175 Hit@10=0.9455 MR=12.5
+05:20:04 | INFO    |            -> new best MRR=0.8424 (saved model_best.pt)
+05:20:48 | INFO    | epoch 3600/6000 | loss=0.0025
+05:20:48 | INFO    |            [l2r] MRR=0.8458 Hit@1=0.7874 Hit@5=0.9183 Hit@10=0.9461 MR=14.3 | [r2l] MRR=0.8429 Hit@1=0.7849 Hit@5=0.9153 Hit@10=0.9436 MR=12.3 | [avg] MRR=0.8443 Hit@1=0.7861 Hit@5=0.9168 Hit@10=0.9449 MR=13.3
+05:20:48 | INFO    |            -> new best MRR=0.8443 (saved model_best.pt)
+05:20:48 | INFO    |            [semi] +681 mutual-NN pairs (train=14311, pool=689)
+05:20:48 | INFO    | === turn 4/5 (train pairs=14311) ===
+05:21:33 | INFO    | epoch 3900/6000 | loss=0.0018
+05:21:33 | INFO    |            [l2r] MRR=0.8527 Hit@1=0.7959 Hit@5=0.9223 Hit@10=0.9473 MR=13.5 | [r2l] MRR=0.8507 Hit@1=0.7936 Hit@5=0.9218 Hit@10=0.9476 MR=11.4 | [avg] MRR=0.8517 Hit@1=0.7948 Hit@5=0.9220 Hit@10=0.9475 MR=12.5
+05:21:33 | INFO    |            -> new best MRR=0.8517 (saved model_best.pt)
+05:22:17 | INFO    | epoch 4200/6000 | loss=0.0023
+05:22:17 | INFO    |            [l2r] MRR=0.8521 Hit@1=0.7953 Hit@5=0.9210 Hit@10=0.9461 MR=14.6 | [r2l] MRR=0.8521 Hit@1=0.7958 Hit@5=0.9220 Hit@10=0.9471 MR=12.2 | [avg] MRR=0.8521 Hit@1=0.7956 Hit@5=0.9215 Hit@10=0.9466 MR=13.4
+05:22:18 | INFO    |            -> new best MRR=0.8521 (saved model_best.pt)
+05:23:02 | INFO    | epoch 4500/6000 | loss=0.0016
+05:23:02 | INFO    |            [l2r] MRR=0.8540 Hit@1=0.7982 Hit@5=0.9220 Hit@10=0.9475 MR=13.9 | [r2l] MRR=0.8526 Hit@1=0.7959 Hit@5=0.9221 Hit@10=0.9461 MR=11.8 | [avg] MRR=0.8533 Hit@1=0.7970 Hit@5=0.9220 Hit@10=0.9468 MR=12.8
+05:23:02 | INFO    |            -> new best MRR=0.8533 (saved model_best.pt)
+05:23:46 | INFO    | epoch 4800/6000 | loss=0.0008
+05:23:46 | INFO    |            [l2r] MRR=0.8547 Hit@1=0.8002 Hit@5=0.9229 Hit@10=0.9464 MR=14.9 | [r2l] MRR=0.8534 Hit@1=0.7971 Hit@5=0.9239 Hit@10=0.9473 MR=12.8 | [avg] MRR=0.8540 Hit@1=0.7987 Hit@5=0.9234 Hit@10=0.9469 MR=13.8
+05:23:47 | INFO    |            -> new best MRR=0.8540 (saved model_best.pt)
+05:23:47 | INFO    |            [semi] +294 mutual-NN pairs (train=14605, pool=395)
+05:23:47 | INFO    | === turn 5/5 (train pairs=14605) ===
+05:24:31 | INFO    | epoch 5100/6000 | loss=0.0023
+05:24:31 | INFO    |            [l2r] MRR=0.8563 Hit@1=0.8011 Hit@5=0.9230 Hit@10=0.9461 MR=16.9 | [r2l] MRR=0.8552 Hit@1=0.7993 Hit@5=0.9234 Hit@10=0.9479 MR=14.1 | [avg] MRR=0.8558 Hit@1=0.8002 Hit@5=0.9232 Hit@10=0.9470 MR=15.5
+05:24:32 | INFO    |            -> new best MRR=0.8558 (saved model_best.pt)
+05:25:16 | INFO    | epoch 5400/6000 | loss=0.0024
+05:25:16 | INFO    |            [l2r] MRR=0.8570 Hit@1=0.8031 Hit@5=0.9224 Hit@10=0.9467 MR=16.7 | [r2l] MRR=0.8550 Hit@1=0.8003 Hit@5=0.9216 Hit@10=0.9452 MR=14.4 | [avg] MRR=0.8560 Hit@1=0.8017 Hit@5=0.9220 Hit@10=0.9460 MR=15.5
+05:25:17 | INFO    |            -> new best MRR=0.8560 (saved model_best.pt)
+05:26:01 | INFO    | epoch 5700/6000 | loss=0.0019
+05:26:01 | INFO    |            [l2r] MRR=0.8567 Hit@1=0.8025 Hit@5=0.9232 Hit@10=0.9464 MR=16.9 | [r2l] MRR=0.8559 Hit@1=0.8010 Hit@5=0.9234 Hit@10=0.9460 MR=15.2 | [avg] MRR=0.8563 Hit@1=0.8017 Hit@5=0.9233 Hit@10=0.9462 MR=16.1
+05:26:01 | INFO    |            -> new best MRR=0.8563 (saved model_best.pt)
+05:26:45 | INFO    | epoch 6000/6000 | loss=0.0005
+05:26:45 | INFO    |            [l2r] MRR=0.8571 Hit@1=0.8028 Hit@5=0.9235 Hit@10=0.9463 MR=17.9 | [r2l] MRR=0.8562 Hit@1=0.8014 Hit@5=0.9225 Hit@10=0.9455 MR=16.2 | [avg] MRR=0.8566 Hit@1=0.8021 Hit@5=0.9230 Hit@10=0.9459 MR=17.1
+05:26:46 | INFO    |            -> new best MRR=0.8566 (saved model_best.pt)
+05:26:47 | INFO    | Done in 14.9 min. Best MRR=0.8566 @ epoch 6000.
+05:26:47 | INFO    | Finished. Best MRR=0.8566 @ epoch 6000.

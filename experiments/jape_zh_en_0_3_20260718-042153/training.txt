@@ -1,0 +1,53 @@
+04:21:53 | INFO    | Model: jape | Device: cuda
+04:21:54 | INFO    | Data: {'lang': 'zh_en', 'fold': '0_3', 'num_entities': 34460, 'num_relations': 2133, '|KG1 ents|': 19388, '|KG2 ents|': 19572, '|KG1 triples|': 70414, '|KG2 triples|': 95142, 'train_pairs': 4500, 'test_pairs': 10500}
+04:21:57 | INFO    | AE attribute channel: 14768 attributes, beta=0.9
+04:21:57 | INFO    | Params: 2.74M
+04:21:57 | INFO    | Run directory: /home/nzahaf/EntityAlignment-Nexus/experiments/jape_zh_en_0_3_20260718-042153
+04:21:57 | INFO    | Device: cuda:0 | entities=34460 triples=165556 test_pairs=10500 (merged-seed graph)
+04:22:05 | INFO    | epoch   25/500 | loss=0.0542
+04:22:05 | INFO    |            [ SE] MRR=0.4314 Hit@1=0.3114 Hit@5=0.5638 Hit@10=0.6744 MR=47.7 | [SE+AE] MRR=0.5350 Hit@1=0.4210 Hit@5=0.6665 Hit@10=0.7638 MR=31.2
+04:22:05 | INFO    |            -> new best MRR=0.5350 (saved model_best.pt)
+04:22:12 | INFO    | epoch   50/500 | loss=0.0502
+04:22:12 | INFO    |            [ SE] MRR=0.4292 Hit@1=0.3080 Hit@5=0.5621 Hit@10=0.6747 MR=44.4 | [SE+AE] MRR=0.5316 Hit@1=0.4169 Hit@5=0.6682 Hit@10=0.7559 MR=30.4
+04:22:19 | INFO    | epoch   75/500 | loss=0.0490
+04:22:19 | INFO    |            [ SE] MRR=0.4299 Hit@1=0.3108 Hit@5=0.5627 Hit@10=0.6725 MR=42.7 | [SE+AE] MRR=0.5324 Hit@1=0.4200 Hit@5=0.6645 Hit@10=0.7592 MR=29.1
+04:22:26 | INFO    | epoch  100/500 | loss=0.0483
+04:22:26 | INFO    |            [ SE] MRR=0.4284 Hit@1=0.3075 Hit@5=0.5630 Hit@10=0.6732 MR=41.9 | [SE+AE] MRR=0.5308 Hit@1=0.4180 Hit@5=0.6632 Hit@10=0.7595 MR=28.5
+04:22:34 | INFO    | epoch  125/500 | loss=0.0476
+04:22:34 | INFO    |            [ SE] MRR=0.4300 Hit@1=0.3085 Hit@5=0.5670 Hit@10=0.6747 MR=40.5 | [SE+AE] MRR=0.5323 Hit@1=0.4186 Hit@5=0.6660 Hit@10=0.7573 MR=27.4
+04:22:41 | INFO    | epoch  150/500 | loss=0.0474
+04:22:41 | INFO    |            [ SE] MRR=0.4305 Hit@1=0.3090 Hit@5=0.5644 Hit@10=0.6770 MR=41.6 | [SE+AE] MRR=0.5355 Hit@1=0.4234 Hit@5=0.6652 Hit@10=0.7579 MR=28.3
+04:22:41 | INFO    |            -> new best MRR=0.5355 (saved model_best.pt)
+04:22:48 | INFO    | epoch  175/500 | loss=0.0470
+04:22:48 | INFO    |            [ SE] MRR=0.4311 Hit@1=0.3115 Hit@5=0.5650 Hit@10=0.6748 MR=41.7 | [SE+AE] MRR=0.5325 Hit@1=0.4192 Hit@5=0.6650 Hit@10=0.7588 MR=28.4
+04:22:55 | INFO    | epoch  200/500 | loss=0.0469
+04:22:55 | INFO    |            [ SE] MRR=0.4324 Hit@1=0.3118 Hit@5=0.5668 Hit@10=0.6790 MR=42.6 | [SE+AE] MRR=0.5350 Hit@1=0.4221 Hit@5=0.6680 Hit@10=0.7605 MR=28.7
+04:23:02 | INFO    | epoch  225/500 | loss=0.0467
+04:23:02 | INFO    |            [ SE] MRR=0.4298 Hit@1=0.3079 Hit@5=0.5659 Hit@10=0.6747 MR=42.9 | [SE+AE] MRR=0.5332 Hit@1=0.4212 Hit@5=0.6650 Hit@10=0.7585 MR=28.6
+04:23:10 | INFO    | epoch  250/500 | loss=0.0464
+04:23:10 | INFO    |            [ SE] MRR=0.4332 Hit@1=0.3125 Hit@5=0.5663 Hit@10=0.6759 MR=42.9 | [SE+AE] MRR=0.5353 Hit@1=0.4231 Hit@5=0.6652 Hit@10=0.7614 MR=28.8
+04:23:17 | INFO    | epoch  275/500 | loss=0.0461
+04:23:17 | INFO    |            [ SE] MRR=0.4332 Hit@1=0.3129 Hit@5=0.5652 Hit@10=0.6775 MR=42.4 | [SE+AE] MRR=0.5341 Hit@1=0.4214 Hit@5=0.6651 Hit@10=0.7586 MR=28.3
+04:23:24 | INFO    | epoch  300/500 | loss=0.0461
+04:23:24 | INFO    |            [ SE] MRR=0.4319 Hit@1=0.3110 Hit@5=0.5660 Hit@10=0.6751 MR=44.5 | [SE+AE] MRR=0.5363 Hit@1=0.4247 Hit@5=0.6665 Hit@10=0.7599 MR=30.0
+04:23:25 | INFO    |            -> new best MRR=0.5363 (saved model_best.pt)
+04:23:31 | INFO    | epoch  325/500 | loss=0.0460
+04:23:31 | INFO    |            [ SE] MRR=0.4339 Hit@1=0.3139 Hit@5=0.5683 Hit@10=0.6777 MR=42.7 | [SE+AE] MRR=0.5361 Hit@1=0.4250 Hit@5=0.6629 Hit@10=0.7568 MR=28.6
+04:23:39 | INFO    | epoch  350/500 | loss=0.0457
+04:23:39 | INFO    |            [ SE] MRR=0.4315 Hit@1=0.3106 Hit@5=0.5650 Hit@10=0.6761 MR=43.5 | [SE+AE] MRR=0.5350 Hit@1=0.4221 Hit@5=0.6673 Hit@10=0.7587 MR=29.1
+04:23:46 | INFO    | epoch  375/500 | loss=0.0457
+04:23:46 | INFO    |            [ SE] MRR=0.4341 Hit@1=0.3136 Hit@5=0.5656 Hit@10=0.6760 MR=43.9 | [SE+AE] MRR=0.5362 Hit@1=0.4230 Hit@5=0.6670 Hit@10=0.7582 MR=29.3
+04:23:53 | INFO    | epoch  400/500 | loss=0.0456
+04:23:53 | INFO    |            [ SE] MRR=0.4332 Hit@1=0.3127 Hit@5=0.5661 Hit@10=0.6768 MR=43.9 | [SE+AE] MRR=0.5367 Hit@1=0.4245 Hit@5=0.6681 Hit@10=0.7634 MR=29.3
+04:23:54 | INFO    |            -> new best MRR=0.5367 (saved model_best.pt)
+04:24:01 | INFO    | epoch  425/500 | loss=0.0455
+04:24:01 | INFO    |            [ SE] MRR=0.4327 Hit@1=0.3107 Hit@5=0.5687 Hit@10=0.6796 MR=43.9 | [SE+AE] MRR=0.5351 Hit@1=0.4230 Hit@5=0.6686 Hit@10=0.7630 MR=29.4
+04:24:08 | INFO    | epoch  450/500 | loss=0.0453
+04:24:08 | INFO    |            [ SE] MRR=0.4350 Hit@1=0.3154 Hit@5=0.5703 Hit@10=0.6774 MR=44.1 | [SE+AE] MRR=0.5382 Hit@1=0.4272 Hit@5=0.6685 Hit@10=0.7619 MR=29.7
+04:24:08 | INFO    |            -> new best MRR=0.5382 (saved model_best.pt)
+04:24:15 | INFO    | epoch  475/500 | loss=0.0452
+04:24:15 | INFO    |            [ SE] MRR=0.4346 Hit@1=0.3150 Hit@5=0.5690 Hit@10=0.6784 MR=44.1 | [SE+AE] MRR=0.5364 Hit@1=0.4244 Hit@5=0.6690 Hit@10=0.7624 MR=29.6
+04:24:22 | INFO    | epoch  500/500 | loss=0.0453
+04:24:22 | INFO    |            [ SE] MRR=0.4330 Hit@1=0.3120 Hit@5=0.5721 Hit@10=0.6760 MR=43.7 | [SE+AE] MRR=0.5373 Hit@1=0.4251 Hit@5=0.6695 Hit@10=0.7608 MR=29.6
+04:24:23 | INFO    | Done in 2.4 min. Best MRR=0.5382 @ epoch 450.
+04:24:23 | INFO    | Finished. Best MRR=0.5382 @ epoch 450.
