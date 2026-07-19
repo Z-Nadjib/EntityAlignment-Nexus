@@ -89,7 +89,7 @@ eval:
   every: 10
   hits_at: [1, 5, 10]
   metric: "csls"                  # csls | cosine | l2
-  csls_k: 3                       # CSLS neighbourhood (3 = sharper => better Hit@1)
+  csls_k: 10                      # CSLS neighbourhood (unified protocol)
   eval_chunk: 1024
   direction: "both"
 

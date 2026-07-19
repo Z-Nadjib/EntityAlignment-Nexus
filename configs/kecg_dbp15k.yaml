@@ -56,8 +56,8 @@ train:
 eval:
   every: 25
   hits_at: [1, 5, 10]
-  metric: "l2"                    # KECG ranks by L2 distance (nearest neighbour)
-  csls_k: 3
+  metric: "csls"                  # unified protocol (the paper ranks by L2)
+  csls_k: 10
   eval_chunk: 1024
   direction: "both"
 

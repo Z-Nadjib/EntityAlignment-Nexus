@@ -53,7 +53,7 @@ eval:
   every: 50
   hits_at: [1, 5, 10]
   metric: "csls"                  # CSLS boost (paper uses plain L1 ~0.38/0.70)
-  csls_k: 3
+  csls_k: 10
   eval_chunk: 1024
   direction: "both"
 

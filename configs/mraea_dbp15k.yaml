@@ -59,7 +59,8 @@ train:
 eval:
   every: 200
   hits_at: [1, 5, 10]
-  metric: "cosine"
+  metric: "csls"
+  csls_k: 10
   eval_chunk: 1024
   direction: "both"
 
